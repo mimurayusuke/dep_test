@@ -4,7 +4,7 @@ SECRET_KEY = '0=qt9!wc&msa%oqq-vg@bug!lpf!)e2!j%y7&v(28d9d2(9o27'
 
 DEBUG = False
 
-ALLOWED_HOST = ['yskexe.com']
+ALLOWED_HOSTS = ['yskexe.com']
 
 STATIC_URL = '/static/'
 #本番環境なので、STATICFILES_DIRSは必要ないはず

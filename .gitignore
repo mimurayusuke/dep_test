@@ -8,6 +8,7 @@
 *.pot
 *.pyc
 __pycache__/
+#local.pyに変更せずにcommitしてしまった。しゃあない。
 local_settings.py
 db.sqlite3
 media
