@@ -5,3 +5,6 @@ from django.http.response import HttpResponse
 
 def hello_weight(request):
     return render(request, 'index.html')
+
+def hello_home(request):
+    return render(request, 'home.html')
