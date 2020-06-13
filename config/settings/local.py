@@ -8,7 +8,7 @@ ALLOWED_HOSTS = []
 
 STATIC_URL = '/static/'
 #STATICFILES_DIRSをコメントアウトしても、ローカル環境では問題なく動作した。
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'assets')]
 #開発環境でcollectstaticはしないので必要ないかもしれない
 #STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
