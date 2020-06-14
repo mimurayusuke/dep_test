@@ -7,9 +7,8 @@ DEBUG = False
 ALLOWED_HOSTS = ['yskexe.com']
 
 STATIC_URL = '/static/'
-#本番環境なので、STATICFILES_DIRSは必要ないはず
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'assets')]
-#本番環境で利用するWebサーバ nginxのディレクトリに静的ファイルを集める。
+#collectstaticコマンドで静的ファイルを集める本番環境Webサーバ（nginx）のディレクトリを指定。
 STATIC_ROOT = '/usr/share/nginx/html/static'
 
 #本番環境で利用するWebサーバ nginxのディレクトリにメディアファイルを集める。

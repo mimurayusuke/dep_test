@@ -1,4 +1,27 @@
 h1 {
-    color: blue;
-    background-color: red;
+    color:white;
+    background-color: blue;
+    text-align: center;
+    width: auto;
+    margin-bottom: unset;
+}
+
+nav {
+    background-color: blue;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    margin-top: unset;
+}
+
+nav li {
+    list-style-type: none;
+}
+
+nav a {
+    color: white;
+    font-size: large;
+    text-decoration: none;
 }
