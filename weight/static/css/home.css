@@ -1,9 +1,26 @@
+.container {
+    display: grid;
+    gap: 10px;
+}
+
+.item {
+    background: gray;
+    padding: 10px;
+    border-radius: 8px;
+    border: 3px solid #ccc;
+}
+
+/*
 h1 {
     color:white;
     background-color: blue;
     text-align: center;
     width: auto;
     margin-bottom: unset;
+}
+
+h2 {
+    text-align: center;
 }
 
 nav {
@@ -22,6 +39,7 @@ nav li {
 
 nav a {
     color: white;
-    font-size: large;
+    font-size: larger;
     text-decoration: none;
 }
+*/
