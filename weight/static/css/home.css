@@ -4,13 +4,19 @@
 }
 
 .item {
-    background: gray;
+    color: white;
+    font-size: large;
+    text-align: center;
+    background: blue;
     padding: 10px;
+    /*
     border-radius: 8px;
-    border: 3px solid #ccc;
+    border: 3px solid white;
+    */
 }
 
 .title {
+    font-size: xx-large;
     text-align: center;
     grid-column: 1 / 5;
 }
