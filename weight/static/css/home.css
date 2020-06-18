@@ -20,6 +20,21 @@
     grid-column: 1 / 5;
 }
 
+.menu_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.menu {
+    font-size: 6vw;
+    text-align: center;
+    background-color: yellow;
+    margin-top: 2vw;
+    grid-column: 2 / 4;
+    border-radius: 3vw;
+}
+
+
 @media screen and (min-width:1000px){
     .item {
         color: white;
