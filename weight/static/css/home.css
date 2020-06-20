@@ -17,7 +17,30 @@
 .title {
     font-size: 10vw;
     text-align: center;
+    background: white;
+    color: blue;
     grid-column: 1 / 5;
+}
+
+.title span {
+    position: relative;
+}
+
+.title span::before, .title span::after {
+    content: "";
+    position: absolute;
+    color: blue;
+    border-bottom: thick solid blue;
+    width: 15vw;
+    bottom: 7vw;
+}
+
+.title span::before{
+    right: 50vw;
+}
+
+.title span::after{
+    left: 50vw;
 }
 
 .menu_container {
@@ -53,36 +76,3 @@
         grid-column: 1 / 5;
     }   
 }
-/*
-h1 {
-    color:white;
-    background-color: blue;
-    text-align: center;
-    width: auto;
-    margin-bottom: unset;
-}
-
-h2 {
-    text-align: center;
-}
-
-nav {
-    background-color: blue;
-}
-
-nav ul {
-    display: flex;
-    justify-content: space-around;
-    margin-top: unset;
-}
-
-nav li {
-    list-style-type: none;
-}
-
-nav a {
-    color: white;
-    font-size: larger;
-    text-decoration: none;
-}
-*/
