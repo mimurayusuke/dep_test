@@ -4,14 +4,12 @@
 }
 
 .item {
+    /* aタグで文字色指定するので削除
     color: white;
+    */
     font-size: 4.8vw;
     text-align: center;
     background: blue;
-    /*
-    border-radius: 8px;
-    border: 3px solid white;
-    */
 }
 
 .title {
@@ -51,10 +49,20 @@
 .menu {
     font-size: 6vw;
     text-align: center;
-    background-color: yellow;
+    background-color: skyblue;
     margin-top: 2vw;
     grid-column: 2 / 4;
     border-radius: 3vw;
+}
+
+.item a {
+    color: white; 
+    text-decoration: none;
+}
+
+.menu a {
+    color: black;
+    text-decoration: none;
 }
 
 
