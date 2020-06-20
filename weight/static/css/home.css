@@ -3,15 +3,6 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-.item {
-    /* aタグで文字色指定するので削除
-    color: white;
-    */
-    font-size: 4.8vw;
-    text-align: center;
-    background: blue;
-}
-
 .title {
     font-size: 10vw;
     text-align: center;
@@ -41,6 +32,25 @@
     left: 50vw;
 }
 
+.nav_container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: unset;
+}
+
+.item {
+    /* aタグで文字色指定するので削除
+    color: white;
+    */
+    font-size: 4.5vw;
+    text-align: center;
+    /*
+    background: blue;
+    */
+}
+
+
+
 .menu_container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -55,8 +65,20 @@
     border-radius: 3vw;
 }
 
+header{
+    text-align: center;
+}
+
+li {
+    list-style: none;
+}
+
+li:not(:last-child){
+    border-right: medium solid black;
+}
+
 .item a {
-    color: white; 
+    color: blue; 
     text-decoration: none;
 }
 
