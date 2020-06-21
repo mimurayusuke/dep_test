@@ -4,4 +4,15 @@
 メニューid:{{id}}<br>
 直近:{{latest_rec.id}} {{latest_rec.weight_menu}}{{latest_rec.weight_record}} {{latest_rec.created_at}}<br>
 最大:{{max_rec.id}} {{max_rec.weight_menu}} {{max_rec.weight_record}} {{ max_rec.created_at}}
+
+    <div class="record_container">
+        <div class="record latest_date">前回の日付</div>
+        <div class="record latest_date">{{ latest_rec.created_at }}</div>
+        <div class="record latest_record">前回の記録</div>
+        <div class="record latest_record">{{ latest_rec.weight_record }}Kg</div>
+        <div class="record max_date">MAX記録日</div>
+        <div class="record max_date">{{ max_rec.created_at }}</div>
+        <div class="record max_record">MAX重量</div>
+        <div class="record max_record">{{ max_rec.weight_record }}Kg</div>
+    </div>
 {% endblock  %}
