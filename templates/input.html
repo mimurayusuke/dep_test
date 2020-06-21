@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-input {{id}}
+メニューid:{{id}}<br>
+直近:{{latest_rec.id}} {{latest_rec.weight_menu}}{{latest_rec.weight_record}} {{latest_rec.created_at}}<br>
+最大:{{max_rec.id}} {{max_rec.weight_menu}} {{max_rec.weight_record}} {{ max_rec.created_at}}
 {% endblock  %}
