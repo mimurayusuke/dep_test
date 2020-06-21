@@ -2,8 +2,16 @@ from django.db import models
 
 # Create your models here.
 class Menu(models.Model):
-    weight_menu = models.CharField(max_length=30)
+    menu_name = models.CharField(max_length=30)
 
     def __str__(self):
-        return "{0}:{1}".format(self.pk, self.weight_menu)
-    
+        return "{0}:{1}".format(self.pk, self.menu_name)
+
+class Record(models.Model):
+    weight_menu = models.ForeignKey(Menu, on_delete=models.CASCADE)
+    weight_record = models.DecimalField(max_digits=5, decimal_places=2, default=0)
+    created_at = models.DateField(auto_now_add=True)
+    modified_at = models.DateField(auto_now=True)
+
+    def __str__(self):
+        return "{0}:{1}:{2}".format(self.pk, self.weight_menu, self.weight_record)
