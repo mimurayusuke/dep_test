@@ -3,7 +3,7 @@
     <div class="menu_container">
     {% for menu in menu_list %}
 
-        <div class="menu"><a href="#">{{menu.menu_name}}</a></div>    
+        <div class="menu"><a href="input/{{menu.id}}" data-value="{{menu.id}}">{{menu.menu_name}}</a></div>    
         
     {% endfor %}
     
