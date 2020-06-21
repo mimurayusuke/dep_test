@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="ja">
+    <meta charset="UTF-8">
+    <title>重量記録帳</title>
+    {% load static %}    
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css'%}">
+</head>
+<body>
+<div class="title_container">
+    <div class="title"><span>重量記録帳</span></div>
+</div>
+
+<header>
+<nav>
+    <ul class="nav_container">
+        <li class="item"><a href="#">ホーム</a></li>
+        <li class="item"><a href="#">種目登録</a></li>
+        <li class="item"><a href="#">過去の記録</a></li>
+        <li class="item"><a href="#">ログイン</a></li>
+    </ul>
+</nav>
+</header>
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>

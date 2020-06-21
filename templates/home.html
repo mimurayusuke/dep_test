@@ -1,54 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head lang="ja">
-    <meta charset="UTF-8">
-    <title>home</title>
-    {% load static %}    
-    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css'%}">
-</head>
-<body>
-<div class="title_container">
-    <div class="title"><span>重量記録帳</span></div>
-</div>
-
-<header>
-<nav>
-    <ul class="nav_container">
-        <li class="item"><a href="#">ホーム</a></li>
-        <li class="item"><a href="#">種目登録</a></li>
-        <li class="item"><a href="#">過去の記録</a></li>
-        <li class="item"><a href="#">ログイン</a></li>
-    </ul>
-</nav>
-</header>
-
-<div class="menu_container">
+{% extends 'base.html' %}
+{% block content %}
+    <div class="menu_container">
     <div class="menu"><a href="#">ベンチプレス</a></div>
     <div class="menu"><a href="#">スクワット</a></div>
     <div class="menu"><a href="#">デッドリフト</a></div>
     <div class="menu"><a href="#">ラットプルダウン</a></div>
 </div>
-
-<!--
-<h1>重量記録帳</h1>
- <nav>
-        <ul>
-            <li>
-                <a href=#>ホーム</a>
-            </li>
-            <li>
-                <a href=#>種目編集</a>
-            </li>
-            <li>
-                <a href=#>過去の記録</a>
-            </li>
-            <li>
-                <a href=#>ログイン</a>
-            </li>       
-        </ul>
-    </nav>
-
-    <h2>種　　目</h2>
--->
-</body>
-</html>
+{% endblock %}
