@@ -1,9 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class="menu_container">
+    {% for menu in menu_list %}
+
+        <div class="menu"><a href="#">{{menu.menu_name}}</a></div>    
+        
+    {% endfor %}
+    
+    <!--テスト画面
     <div class="menu"><a href="#">ベンチプレス</a></div>
     <div class="menu"><a href="#">スクワット</a></div>
     <div class="menu"><a href="#">デッドリフト</a></div>
     <div class="menu"><a href="#">ラットプルダウン</a></div>
+    -->
 </div>
 {% endblock %}
