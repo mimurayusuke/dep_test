@@ -9,12 +9,12 @@
 
     <div class="record_container">
         <div class="record latest_date">前回の日付</div>
-        <div class="record latest_date">{{ latest_rec.created_at }}</div>
+        <div class="record latest_date">{{latest_rec.created_at|date:"Y-m-j"}}</div>
         <div class="record latest_record">前回の記録</div>
-        <div class="record latest_record">{{ latest_rec.weight_record }}Kg</div>
+        <div class="record latest_record">{{latest_rec.weight_record}}Kg</div>
         <div class="record max_date">MAX記録日</div>
-        <div class="record max_date">{{ max_rec.created_at }}</div>
+        <div class="record max_date">{{max_rec.created_at|date:"Y-m-j"}}</div>
         <div class="record max_record">MAX重量</div>
-        <div class="record max_record">{{ max_rec.weight_record }}Kg</div>
+        <div class="record max_record">{{max_rec.weight_record}}Kg</div>
     </div>
 {% endblock  %}
