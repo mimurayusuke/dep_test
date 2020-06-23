@@ -5,7 +5,10 @@ class Menu(models.Model):
     menu_name = models.CharField(max_length=30)
 
     def __str__(self):
-        return "PK:{0}, name:{1}".format(self.pk, self.menu_name)
+        #下記のように記載すると、外部キーで参照されたときに
+        #定義した内容で表示されてしまうので、コメントアウト。
+        #return "PK:{0}, name:{1}".format(self.pk, self.menu_name)
+        return self.menu_name
 
 class Record(models.Model):
     weight_menu = models.ForeignKey(Menu, on_delete=models.CASCADE)

@@ -4,8 +4,20 @@
 }
 
 .record {
-    font-size: 5vw;
+    font-size: 4.7vw;
     text-align: center;
     margin-top: 2vw;
-    grid-column: 2 / 4;
+    grid-column: 1 / 5;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-top: 10vw;
+}
+
+.form_item {
+    font-size: 4.5vw;
+    text-align: center;
+    grid-column: 1 / 5;
 }
