@@ -1,16 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <div class="selected_menu">{{ latest_rec.weight_menu }}</div>
     <form method="post" action="">
         {% csrf_token %}
-        <div class="form_item">{{ latest_rec.weight_menu }}</div>
-        <div class="form_item">{{ form.weight_record }}Kg</div>
-        <div class="form_item"><input class="button" type="submit" value="入力"></div>
+        <!--formでattrsを設定してclassを明示的にする-->
+        {{ form.weight_record }}Kg
+        <!--リンク扱いにして↑と要素が被らないようにする-->
+        <input class="button" type="submit" value="入力">
     </form>
-    <div class="record_container">
-        <div class="record latest_date">前回の日付:{{latest_rec.created_at|date:"Y-m-j"}}</div>
-        <div class="record latest_record">前回の記録:{{latest_rec.weight_record}}Kg</div>
-        <div class="record max_date">MAX記録日:{{max_rec.created_at|date:"Y-m-j"}}</div>
-        <div class="record max_record">MAX重量:{{max_rec.weight_record}}Kg</div>
-    </div>
-{% endblock  %}
+
+    <div class="record latest_date">前回の日付:{{latest_rec.created_at|date:"Y-m-j"}}</div>
+    <div class="record latest_record">前回の記録:{{latest_rec.weight_record}}Kg</div>
+    <div class="record max_date">MAX記録日:{{max_rec.created_at|date:"Y-m-j"}}</div>
+    <div class="record max_record">MAX重量:{{max_rec.weight_record}}Kg</div>
+{% endblock %}

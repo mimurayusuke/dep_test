@@ -8,23 +8,21 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/input.css'%}">
 </head>
 <body>
-<div class="title_container">
+<div class="container">
     <div class="title"><span>重量記録帳</span></div>
+
+    <nav class="navbar">
+        <ul>
+            <li class="item"><a href="{% url 'hello_home' %}">ホーム</a></li>
+            <li class="item"><a href="#">種目登録</a></li>
+            <li class="item"><a href="#">過去の記録</a></li>
+            <li class="item"><a href="#">ログイン</a></li>
+        </ul>
+    </nav>
+
+    {% block content %}
+    {% endblock %}
+
 </div>
-
-<header>
-<nav>
-    <ul class="nav_container">
-        <li class="item"><a href="{% url 'hello_home' %}">ホーム</a></li>
-        <li class="item"><a href="#">種目登録</a></li>
-        <li class="item"><a href="#">過去の記録</a></li>
-        <li class="item"><a href="#">ログイン</a></li>
-    </ul>
-</nav>
-</header>
-
-{% block content %}
-{% endblock %}
-
 </body>
 </html>

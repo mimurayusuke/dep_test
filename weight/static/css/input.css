@@ -1,23 +1,39 @@
-.record_container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-}
-
-.record {
-    font-size: 4.7vw;
+.selected_menu {
+    font-size: 6vw;
     text-align: center;
-    margin-top: 2vw;
-    grid-column: 1 / 5;
+    background-color: skyblue;
+    border-radius: 3vw;
+    grid-column: 2 / 4;
 }
 
+form {
+    font-size: 6vw;
+    text-align: center;
+    grid-column: 2 / 4;
+}
+
+input {
+    width: 20vw;
+    height: 5vw;
+}
+/*
 form {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     margin-top: 10vw;
 }
+*/
 
-.form_item {
-    font-size: 4.5vw;
+.record {
+    font-size: 5vw;
     text-align: center;
+    margin-top: 2vw;
     grid-column: 1 / 5;
 }
+
+/*
+.record_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+*/
