@@ -12,17 +12,16 @@ form {
     grid-column: 2 / 4;
 }
 
-input {
+.input_area {
+    width: 30vw;
+    height: 6vw;
+}
+
+.button {
     width: 20vw;
-    height: 5vw;
+    height: 6vw;
+    font-size: 4vw;
 }
-/*
-form {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    margin-top: 10vw;
-}
-*/
 
 .record {
     font-size: 5vw;
@@ -30,10 +29,3 @@ form {
     margin-top: 2vw;
     grid-column: 1 / 5;
 }
-
-/*
-.record_container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-}
-*/
