@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http.response import HttpResponse
 from django.db.models import Max
 from .models import Menu, Record
@@ -29,6 +29,7 @@ def input_func(request, id):
 
             latest_rec = Record.objects.filter(weight_menu__id= id).latest('created_at')
             max_rec = Record.objects.filter(weight_menu__id= id).order_by('weight_record').last()
+            return redirect('input', id)
 
     else:
         #外部キーの値を取得する時は定義した外部キーの項目名にアンダーバーを２つ続けて、取得したいデータの値を指定する。

@@ -3,6 +3,7 @@
     text-align: center;
     background-color: skyblue;
     border-radius: 3vw;
+    margin: 2vw 0vw;
     grid-column: 2 / 4;
 }
 
@@ -12,15 +13,27 @@ form {
     grid-column: 2 / 4;
 }
 
+p {
+    margin: 2vw 0vw;
+}
+
 .input_area {
     width: 30vw;
     height: 6vw;
+    font-size: 100%;/*100%に指定すると、入力される文字がボックスいっぱいに拡大される。そして何故かボックスと単位の高さも揃った*/
+    padding: 0;
 }
 
 .button {
-    width: 20vw;
-    height: 6vw;
+    width: 25vw;
+    height: 8vw;
     font-size: 4vw;
+    color: white;
+    background-color: blue;
+    border: solid blue;
+    border-radius: 3vw;
+    padding: 0;
+    margin: 2vw 0vw;
 }
 
 .record {

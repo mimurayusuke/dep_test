@@ -40,20 +40,26 @@
 }
 
 ul {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
     padding: unset;
     font-size: 0;
 }
 
 li {
+    /*
     display: inline-block;
+    */
     list-style: none;
     font-size: 4.5vw;
 }
 
+/*
 li:not(:last-child){
     border-right: medium solid black;
 }
-
+*/
 .item a {
     color: blue; 
     text-decoration: none;
