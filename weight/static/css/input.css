@@ -1,10 +1,13 @@
 .selected_menu {
     font-size: 6vw;
     text-align: center;
-    background-color: skyblue;
+    color: white;
+    background-color:blue;
+    /*
     border-radius: 3vw;
+    */
     margin: 2vw 0vw;
-    grid-column: 2 / 4;
+    grid-column: 1 / 5;
 }
 
 form {

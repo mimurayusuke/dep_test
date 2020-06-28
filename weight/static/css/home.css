@@ -66,6 +66,18 @@ li:not(:last-child){
     display: block;
 }
 
+.menu_list {
+    font-size: 6vw;
+    text-align: center;
+    color: white;
+    background-color:blue;
+    /*
+    border-radius: 3vw;
+    */
+    margin: 2vw 0vw;
+    grid-column: 1 / 5;
+}
+
 .menu {
     font-size: 6vw;
     text-align: center;

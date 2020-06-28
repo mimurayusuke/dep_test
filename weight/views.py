@@ -47,10 +47,23 @@ def edit_func(request):
             register_menu = Menu()
             register_menu.menu_name = form.cleaned_data['menu_name']
 
-            Menu.objects.create(
-                menu_name = register_menu.menu_name,
+            #登録するメニューが既に存在する場合はエラー返し、存在しない時に登録する。
+            if  Menu.objects.filter(menu_name = register_menu.menu_name).exists():
+                print('exist')
+            else:
+                Menu.objects.create(
+                    menu_name = register_menu.menu_name,
+                )
+                #新規登録したメニューの記録を0kgで作成する。
+                #この処理がない場合、home画面で新規登録したメニューをクリックした際に、レコードを探してこれない
+                #ためエラーとなる。
+                new_menu_id = Menu.objects.get(menu_name = register_menu.menu_name)
+                print(new_menu_id.id)
+                Record.objects.create(
+                weight_menu = Menu(id = new_menu_id.id),
+                weight_record = 0.00,
             )
-        
+
             return redirect('edit')
 
     else:
