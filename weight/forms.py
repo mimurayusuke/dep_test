@@ -1,4 +1,5 @@
 from django import forms
+from .models import Menu
 
 class RecordForm(forms.Form):
     weight_record = forms.DecimalField(
@@ -16,3 +17,9 @@ class MenuForm(forms.Form):
         required=True,
         widget=forms.TextInput(attrs={'class': 'input_menu'})
     )
+
+#class MultiSelectForm(forms.Form):
+#    menu_name = forms.MultipleChoiceField(
+#        label_suffix='menu',
+#        widget=forms.SelectMultiple(attrs={'class': 'select_menu'})
+#    )

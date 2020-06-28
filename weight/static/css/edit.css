@@ -60,3 +60,16 @@ p {
     margin: 2vw 0vw;
     grid-column: 1 / 3;
 }
+
+.edit_form {
+    padding: 0;
+    text-align: center;
+    grid-column: 1 / 5;
+}
+
+.edit_menu_list {
+    width: 60vw;
+    height: 35vw;
+    font-size: 100%;/*100%に指定すると、入力される文字がボックスいっぱいに拡大される。そして何故かボックスと単位の高さも揃った*/
+    padding: 0;
+}

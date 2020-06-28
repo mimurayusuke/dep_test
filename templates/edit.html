@@ -12,9 +12,25 @@
     </form>
 
     <div class="edit_title">種目編集</div>
-    {% for menu in menu_list %}
+    
+    <form class="edit_form" method="post" action="">
+        {% csrf_token %}
+        <select multiple class="edit_menu_list" size="4">
+            {% for menu in menu_list %}
+                <option>{{ menu.menu_name }}</option>
+            {% endfor %}
+        </select>
+        <p><input class="button" type="submit" value="削除"></p>
+    </form>
 
-        <div class="edit_menu"><a href="input/{{menu.id}}" data-value="{{menu.id}}">{{menu.menu_name}}:</a></div>    
+
+
+    <!--
+       {% for menu in menu_list %}
+
+            <div class="edit_menu"><a href="input/{{menu.id}}" data-value="{{menu.id}}">{{menu.menu_name}}:</a></div>    
         
-    {% endfor %}
+        {% endfor %}
+    -->
+    
 {% endblock %}
