@@ -47,9 +47,12 @@ def edit_func(request):
             register_menu = Menu()
             register_menu.menu_name = form.cleaned_data['menu_name']
 
-            #登録するメニューが既に存在する場合はエラー返し、存在しない時に登録する。
+            #登録するメニューが既に存在する場合はエラーメッセージを返し、存在しない時に登録する。
             if  Menu.objects.filter(menu_name = register_menu.menu_name).exists():
-                print('exist')
+                error_message = "は既に登録されています。"
+                form = MenuForm()
+                menu_list = Menu.objects.all().order_by('id')
+                return render(request, 'edit.html', {'menu_list':menu_list, 'form':form, 'error_message':error_message, 'registered_menu':register_menu.menu_name})
             else:
                 Menu.objects.create(
                     menu_name = register_menu.menu_name,

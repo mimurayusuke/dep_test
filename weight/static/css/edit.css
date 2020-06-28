@@ -5,6 +5,15 @@
     grid-column: 2 / 4;
 }
 
+.register_error {
+    font-size: 4vw;
+    text-align: center;
+    color:white;
+    background-color: red;
+    margin: 2vw 0vw;
+    grid-column: 1 / 5;
+}
+
 .register_form {
     font-size: 6vw;
     text-align: center;
