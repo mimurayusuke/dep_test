@@ -28,7 +28,7 @@ p {
 
 .input_menu {
     width: 50vw;
-    height: 6vw;
+    height: 8vw;
     font-size: 100%;/*100%に指定すると、入力される文字がボックスいっぱいに拡大される。そして何故かボックスと単位の高さも揃った*/
     padding: 0;
 }
@@ -68,8 +68,8 @@ p {
 }
 
 .edit_menu_list {
-    width: 60vw;
-    height: 35vw;
+    width: 50vw;
+    height: 8vw;
     font-size: 100%;/*100%に指定すると、入力される文字がボックスいっぱいに拡大される。そして何故かボックスと単位の高さも揃った*/
     padding: 0;
 }
