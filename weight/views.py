@@ -73,3 +73,6 @@ def edit_func(request):
         form = MenuForm()
         menu_list = Menu.objects.all().order_by('id')
         return render(request, 'edit.html', {'menu_list':menu_list, 'form':form})
+
+def edit_menu_func(request, id):
+        return render(request, 'edit_menu.html', {'id':id})
