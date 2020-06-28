@@ -6,6 +6,7 @@
     {% load static %}    
     <link rel="stylesheet" type="text/css" href="{% static 'css/home.css'%}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/input.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/edit.css'%}">
 </head>
 <body>
 <div class="container">
@@ -14,7 +15,7 @@
     <nav class="navbar">
         <ul class="flex-container">
             <li class="item"><a href="{% url 'hello_home' %}">ホーム</a></li>
-            <li class="item"><a href="#">種目登録</a></li>
+            <li class="item"><a href="{% url 'edit' %}">種目設定</a></li>
             <li class="item"><a href="#">過去の記録</a></li>
             <li class="item"><a href="#">ログイン</a></li>
         </ul>

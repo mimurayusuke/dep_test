@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="register_title">種目登録</div>
+    <form class="register_form" method="post" action="">
+        {% csrf_token %}
+        <!--formでattrsを設定してclassを明示的にする-->
+        <p>{{ form.menu_name }}</p>
+        <!--リンク扱いにして↑と要素が被らないようにする-->
+        <input class="button" type="submit" value="登録">
+    </form>
+
+    <div class="edit_title">種目編集</div>
+    {% for menu in menu_list %}
+
+        <div class="edit_menu"><a href="input/{{menu.id}}" data-value="{{menu.id}}">{{menu.menu_name}}:</a></div>    
+        
+    {% endfor %}
+{% endblock %}

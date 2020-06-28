@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http.response import HttpResponse
 from django.db.models import Max
 from .models import Menu, Record
-from .forms import RecordForm
+from .forms import RecordForm, MenuForm
 
 # Create your views here.
 
@@ -38,3 +38,22 @@ def input_func(request, id):
         #getの時は、空のフォームを作成してレンダリング
         form = RecordForm()
     return render(request, 'input.html', {'id':id, 'latest_rec':latest_rec, 'max_rec':max_rec, 'form':form})
+
+def edit_func(request):
+    
+    if request.method == 'POST':
+        form = MenuForm(request.POST or None)
+        if form.is_valid():
+            register_menu = Menu()
+            register_menu.menu_name = form.cleaned_data['menu_name']
+
+            Menu.objects.create(
+                menu_name = register_menu.menu_name,
+            )
+        
+            return redirect('edit')
+
+    else:
+        form = MenuForm()
+        menu_list = Menu.objects.all().order_by('id')
+        return render(request, 'edit.html', {'menu_list':menu_list, 'form':form})

@@ -4,5 +4,6 @@ from . import views
 urlpatterns = [
     re_path(r'^$', views.hello_weight, name='hello_weight'),
     path('home', views.hello_home, name='hello_home'),
+    path('edit_menu', views.edit_func, name='edit'),
     path('input/<int:id>', views.input_func, name='input'),
 ]
