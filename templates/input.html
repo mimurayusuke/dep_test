@@ -4,6 +4,7 @@
     <div class="selected_menu">{{ latest_rec.weight_menu }}</div>
     <form method="post" action="">
         {% csrf_token %}
+        <p>今回の重量</p>
         <!--formでattrsを設定してclassを明示的にする-->
         <p>{{ form.weight_record }}<span>kg</span></p>
         <!--リンク扱いにして↑と要素が被らないようにする-->
