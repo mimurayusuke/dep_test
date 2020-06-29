@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, Http404
 from django.http.response import HttpResponse
 from django.db.models import Max
 from .models import Menu, Record
@@ -75,4 +75,11 @@ def edit_func(request):
         return render(request, 'edit.html', {'menu_list':menu_list, 'form':form})
 
 def edit_menu_func(request, id):
-        return render(request, 'edit_menu.html', {'id':id})
+    try:
+        edit_menu = Menu.objects.get(pk = id)
+    except Menu.DoesNotExist:
+        raise Http404
+
+    form = MenuForm({'menu_name':edit_menu})
+
+    return render(request, 'edit_menu.html', {'id':id, 'edit_menu':edit_menu, 'form':form})
