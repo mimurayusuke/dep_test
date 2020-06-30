@@ -3,6 +3,7 @@ from django.http.response import HttpResponse
 from django.db.models import Max
 from .models import Menu, Record
 from .forms import RecordForm, MenuForm
+from django.views.decorators.http import require_POST
 
 # Create your views here.
 
@@ -91,3 +92,7 @@ def edit_menu_func(request, id):
     form = MenuForm({'menu_name':edit_menu.menu_name})
 
     return render(request, 'edit_menu.html', {'id':id, 'edit_menu':edit_menu, 'form':form})
+
+@require_POST
+def delete_func(request, id):
+    return HttpResponse('delete' + str(id) + 'ロジックはまだです。')

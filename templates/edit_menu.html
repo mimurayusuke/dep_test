@@ -1,13 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
-    <form class="edit_form" id="edit_form" method="post" action="">
+    <form class="edit_form" id="edit_form" method="post" action="/edit/{{ id }}">
         {% csrf_token %}
         <p>{{ form.menu_name }}</p>
     </form>
     <div class="edit_button">
-        <input class="button" form="edit_form" type="submit" value="編集">
+        <input class="button" id="edit_b" form="edit_form" type="submit" value="編集">
     </div>
     <div class="delete_button">
-        <input class="button" form="edit_form" type="submit" value="削除">
+        <input class="button" id="delete_b" form="edit_form" type="submit" value="削除" onclick="change_action()";>
     </div>
+    <script type="text/javascript">
+        function change_action(){
+            alert('本当に削除しますか？');
+            document.getElementById('edit_form').action="/delete/{{ id }}"
+        }
+    </script>
 {% endblock %}
