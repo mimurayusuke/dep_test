@@ -79,7 +79,15 @@ def edit_menu_func(request, id):
         edit_menu = Menu.objects.get(pk = id)
     except Menu.DoesNotExist:
         raise Http404
+    
+    if request.method == 'POST':
+        form = MenuForm(request.POST)
+        if form.is_valid():
+            edit_menu.menu_name = form.cleaned_data['menu_name']
+            edit_menu.save()
+            return redirect('edit')
 
-    form = MenuForm({'menu_name':edit_menu})
+    #MenuFormの項目であるmenu_nameに対して、↑で取得したmodelのデータをセットする。
+    form = MenuForm({'menu_name':edit_menu.menu_name})
 
     return render(request, 'edit_menu.html', {'id':id, 'edit_menu':edit_menu, 'form':form})
