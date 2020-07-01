@@ -39,9 +39,38 @@ p {
     margin: 2vw 0vw;
 }
 
+.latest_title {
+    font-size: 5vw;
+    text-align: center;
+    margin-top: 2vw;
+    grid-column: 1 / 5;
+}
+
+.latest_record {
+    font-size: 5vw;
+    text-align: center;
+    margin-top: 2vw;
+    grid-column: 1 / 5;
+}
+.max_title {
+    font-size: 5vw;
+    text-align: center;
+    margin-top: 2vw;
+    grid-column: 1 / 5;
+}
+
+.max_record {
+    font-size: 5vw;
+    text-align: center;
+    margin-top: 2vw;
+    grid-column: 1 / 5;
+}
+
+/*
 .record {
     font-size: 5vw;
     text-align: center;
     margin-top: 2vw;
     grid-column: 1 / 5;
 }
+*/
