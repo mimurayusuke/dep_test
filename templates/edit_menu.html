@@ -12,8 +12,12 @@
     </div>
     <script type="text/javascript">
         function change_action(){
-            alert('本当に削除しますか？');
-            document.getElementById('edit_form').action="/delete/{{ id }}"
+            var result = confirm('本当に削除しますか？');
+            //alertに対してnoの場合の分岐を追加すること。
+            if (result) {
+                document.getElementById('edit_form').action="/delete/{{ id }}"
+            }
+
         }
     </script>
 {% endblock %}

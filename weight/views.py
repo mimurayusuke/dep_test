@@ -95,4 +95,10 @@ def edit_menu_func(request, id):
 
 @require_POST
 def delete_func(request, id):
-    return HttpResponse('delete' + str(id) + 'ロジックはまだです。')
+    try:
+        delete_menu = Menu.objects.get(pk = id)
+    except Menu.DoesNotExist:
+        raise Http404
+    delete_menu.delete()
+
+    return redirect('edit')
