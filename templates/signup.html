@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form id="signup_form" method="post" action="">
+        {% csrf_token %}
+        <p>登録ユーザ名</p>
+        <p>{{ form.username }}</p>
+        <p>{{ form.username.errors }}</p>
+        <p id="">パスワード</p>
+        <p>{{ form.password1 }}</p>
+        <p>{{ form.password1.errors }}</p>
+        <p>パスワード再入力</p>
+        <p>{{ form.password2 }}</p>
+        <p>{{ form.password2.errors }}</p>
+        <input class="button" type="submit" value="登録">
+    </form>
+{% endblock %}

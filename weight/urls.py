@@ -8,4 +8,6 @@ urlpatterns = [
     path('edit_menu', views.edit_func, name='edit'),
     path('edit/<int:id>', views.edit_menu_func, name='edit_menu'),
     path('delete/<int:id>', views.delete_func, name='delete'),
+    path('signup', views.signup_func, name='signup'),
+    path('logout', views.logout_func, name='logout'),
 ]

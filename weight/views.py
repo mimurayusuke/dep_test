@@ -2,8 +2,11 @@ from django.shortcuts import render, redirect, Http404
 from django.http.response import HttpResponse
 from django.db.models import Max
 from .models import Menu, Record
-from .forms import RecordForm, MenuForm
+from .forms import RecordForm, MenuForm, SignUpForm
 from django.views.decorators.http import require_POST
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -11,6 +14,8 @@ def hello_weight(request):
     return render(request, 'index.html')
 
 def hello_home(request):
+    print(request.user)
+    print(request.user.is_authenticated)
     menu_list = Menu.objects.all().order_by('id')
     return render(request, 'home.html', {'menu_list':menu_list})
 
@@ -102,3 +107,26 @@ def delete_func(request, id):
     delete_menu.delete()
 
     return redirect('edit')
+
+def signup_func(request):
+    if request.method == 'POST':
+        print(request.POST)
+        form = SignUpForm(request.POST)
+        #formの中身を確認することで、エラーになっている内容が分かる。
+        print(form)
+        if form.is_valid():
+            user = form.save()
+            print(user.id)#user.idで登録されているユーザのpkを参照できる。
+            #login(request, user)
+            #検証段階のため、testにredirectしている。
+            #return redirect('test', pk=user.pk)
+            return HttpResponse('success')
+        else:
+            return render(request, 'signup.html', {'form': form})
+    else:
+        form = SignUpForm()
+        return render(request, 'signup.html', {'form': form})
+
+def logout_func(request):
+    logout(request)
+    return redirect('signup')

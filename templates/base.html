@@ -8,19 +8,25 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/input.css'%}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/edit.css'%}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/edit_menu.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/signup.css'%}">
 </head>
 <body>
 <div class="container">
     <div class="title"><span>重量記録帳</span></div>
-
-    <nav class="navbar">
-        <ul class="flex-container">
-            <li class="item"><a href="{% url 'hello_home' %}">ホーム</a></li>
-            <li class="item"><a href="{% url 'edit' %}">種目設定</a></li>
-            <li class="item"><a href="#">記録確認</a></li>
-            <li class="item"><a href="#">ログイン</a></li>
-        </ul>
-    </nav>
+    {% if request.user.is_authenticated %}
+        <nav class="navbar">
+            <ul class="flex-container">
+                <li class="item"><a href="{% url 'hello_home' %}">ホーム</a></li>
+                <li class="item"><a href="{% url 'edit' %}">種目設定</a></li>
+                <li class="item"><a href="#">記録確認</a></li>
+                <li class="item"><a href="{% url 'logout' %}">ログアウト</a></li>
+            </ul>
+        </nav>
+    {% else %}
+        <div id="signup">
+            サインアップ画面<a href="admin/">admin画面</a>
+        </div>
+    {% endif %}
 
     {% block content %}
     {% endblock %}

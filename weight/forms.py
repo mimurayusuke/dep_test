@@ -1,4 +1,5 @@
 from django import forms
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .models import Menu
 
 class RecordForm(forms.Form):
@@ -23,3 +24,14 @@ class MenuForm(forms.Form):
 #        label_suffix='menu',
 #        widget=forms.SelectMultiple(attrs={'class': 'select_menu'})
 #    )
+
+class SignUpForm(UserCreationForm):
+    username = forms.CharField(
+        widget = forms.TextInput(attrs={'id': 'sign_up_name', 'class': 'input_area', 'name': 'username'})
+        )
+    password1 = forms.CharField(
+        widget = forms.PasswordInput(attrs={'id': 'sign_up_pass', 'class': 'input_area', 'name': 'password1'})
+        )
+    password2 = forms.CharField(
+        widget = forms.PasswordInput(attrs={'id': 'sign_up_pass', 'class': 'input_area', 'name': 'password2'})
+        )

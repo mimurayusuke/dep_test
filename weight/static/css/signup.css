@@ -1,0 +1,64 @@
+#signup_form {
+    font-size: 6vw;
+    text-align: center;
+    grid-column: 1 / 5;
+}
+
+p {
+    margin: 2vw 0vw;
+}
+
+.input_area {
+    width: 50vw;
+    height: 8vw;
+    font-size: 100%;/*100%に指定すると、入力される文字がボックスいっぱいに拡大される。そして何故かボックスと単位の高さも揃った*/
+    padding: 0;
+}
+
+.button {
+    width: 25vw;
+    height: 8vw;
+    font-size: 4vw;
+    color: white;
+    background-color: blue;
+    border: solid blue;
+    border-radius: 3vw;
+    padding: 0;
+    margin: 2vw 0vw;
+}
+
+.latest_title {
+    font-size: 5vw;
+    text-align: center;
+    margin-top: 2vw;
+    grid-column: 1 / 5;
+}
+
+.latest_record {
+    font-size: 5vw;
+    text-align: center;
+    margin-top: 2vw;
+    grid-column: 1 / 5;
+}
+.max_title {
+    font-size: 5vw;
+    text-align: center;
+    margin-top: 2vw;
+    grid-column: 1 / 5;
+}
+
+.max_record {
+    font-size: 5vw;
+    text-align: center;
+    margin-top: 2vw;
+    grid-column: 1 / 5;
+}
+
+/*
+.record {
+    font-size: 5vw;
+    text-align: center;
+    margin-top: 2vw;
+    grid-column: 1 / 5;
+}
+*/
