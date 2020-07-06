@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    ユーザ名：{{ request.user }}
+    <a href="{% url 'logout' %}">ログアウト</a>
+{% endblock %}

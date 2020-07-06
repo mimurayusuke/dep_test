@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, Http404
 from django.http.response import HttpResponse
 from django.db.models import Max
 from .models import Menu, Record
-from .forms import RecordForm, MenuForm, SignUpForm
+from .forms import RecordForm, MenuForm, SignUpForm, LoginForm
 from django.views.decorators.http import require_POST
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
@@ -117,7 +117,7 @@ def signup_func(request):
         if form.is_valid():
             user = form.save()
             print(user.id)#user.idで登録されているユーザのpkを参照できる。
-            #login(request, user)
+            login(request, user)
             #検証段階のため、testにredirectしている。
             #return redirect('test', pk=user.pk)
             return HttpResponse('success')
@@ -127,6 +127,31 @@ def signup_func(request):
         form = SignUpForm()
         return render(request, 'signup.html', {'form': form})
 
+def login_func(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        print('ユーザ名' + username + ' パスワード' + password)
+        print(request.POST)
+        user = authenticate(request, username=username, password=password)
+        print(user)
+        if user is not None:
+            print('ok')
+            login(request, user)
+            #これでhome/user.pk/でアクセスできる。
+            #return redirect('home', pk=user.pk)
+            #検証段階のため、testにredirectしている。
+            return redirect('home')
+        else:
+            print('no valid')
+            form= LoginForm()
+    else:
+        form = LoginForm()
+    return render(request, 'login.html', {'form': form})
+
 def logout_func(request):
     logout(request)
-    return redirect('signup')
+    return redirect('login')
+
+def account_func(request):
+    return render(request, 'account.html')

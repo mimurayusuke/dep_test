@@ -1,4 +1,4 @@
-.signup_menu {
+.login_menu {
     font-size: 6vw;
     text-align: center;
     color: white;
@@ -7,7 +7,7 @@
     grid-column: 1 / 5;
 }
 
-#signup_form {
+#login_form {
     font-size: 6vw;
     text-align: center;
     grid-column: 1 / 5;
@@ -34,4 +34,24 @@ p {
     border-radius: 3vw;
     padding: 0;
     margin: 2vw 0vw;
+}
+
+#link_signup {
+    font-size: 6vw;
+    text-align: center;
+    grid-column: 1 / 5;
+}
+
+#link_signup a{
+    width: 25vw;
+    height: 8vw;
+    font-size: 4vw;
+    color: white;
+    background-color: blue;
+    border: solid blue;
+    border-radius: 3vw;
+    padding-top: 2vw;
+    margin: 2vw 0vw;
+    display: inline-block;
+    text-decoration: none;
 }

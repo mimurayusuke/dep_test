@@ -30,8 +30,16 @@ class SignUpForm(UserCreationForm):
         widget = forms.TextInput(attrs={'id': 'sign_up_name', 'class': 'input_area', 'name': 'username'})
         )
     password1 = forms.CharField(
-        widget = forms.PasswordInput(attrs={'id': 'sign_up_pass', 'class': 'input_area', 'name': 'password1'})
+        widget = forms.PasswordInput(attrs={'id': 'sign_up_pass1', 'class': 'input_area', 'name': 'password1'})
         )
     password2 = forms.CharField(
-        widget = forms.PasswordInput(attrs={'id': 'sign_up_pass', 'class': 'input_area', 'name': 'password2'})
+        widget = forms.PasswordInput(attrs={'id': 'sign_up_pass2', 'class': 'input_area', 'name': 'password2'})
+        )
+
+class LoginForm(AuthenticationForm):
+    username = forms.CharField(
+        widget = forms.TextInput(attrs={'id': 'login_name', 'class': 'input_area', 'name': 'username'})
+        )
+    password = forms.CharField(
+        widget = forms.PasswordInput(attrs={'id': 'login_pass', 'class': 'input_area', 'name': 'password'})
         )

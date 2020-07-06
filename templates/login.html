@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="login_menu">ログイン</div>
+    <form id="login_form" method="post" action="">
+        {% csrf_token %}
+        <p>ユーザ名</p>
+        <p>{{ form.username }}</p>
+        <p>{{ form.username.errors }}</p>
+        <p>パスワード</p>
+        <p>{{ form.password }}</p>
+        <p>{{ form.password.errors }}</p>
+        <input class="button" type="submit" value="ログイン">
+    </form>
+
+    <div id="link_signup">
+        <p>or</p>
+        <a href="{% url 'signup' %}" class="button">新規登録</a>
+    <div>
+
+
+{% endblock %}
