@@ -120,7 +120,7 @@ def signup_func(request):
             login(request, user)
             #検証段階のため、testにredirectしている。
             #return redirect('test', pk=user.pk)
-            return HttpResponse('success')
+            return redirect('home')
         else:
             return render(request, 'signup.html', {'form': form})
     else:
