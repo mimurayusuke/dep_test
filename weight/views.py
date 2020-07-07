@@ -14,7 +14,9 @@ def hello_weight(request):
     return render(request, 'index.html')
 
 def hello_home(request):
+    print(request)
     print(request.user)
+    print(request.user.id)
     print(request.user.is_authenticated)
     menu_list = Menu.objects.all().order_by('id')
     return render(request, 'home.html', {'menu_list':menu_list})

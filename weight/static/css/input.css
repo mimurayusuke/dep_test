@@ -13,18 +13,23 @@
 form {
     font-size: 6vw;
     text-align: center;
-    grid-column: 2 / 4;
+    grid-column: 1 / 5;
 }
 
 p {
     margin: 2vw 0vw;
 }
 
-.input_area {
-    width: 30vw;
+#id_weight_record {
+    width: 40vw;
     height: 6vw;
     font-size: 100%;/*100%に指定すると、入力される文字がボックスいっぱいに拡大される。そして何故かボックスと単位の高さも揃った*/
+    border: solid;
     padding: 0;
+}
+
+#unit {
+    margin-left: 0.5vw;
 }
 
 .button {

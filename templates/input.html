@@ -6,7 +6,7 @@
         {% csrf_token %}
         <p>今回の重量</p>
         <!--formでattrsを設定してclassを明示的にする-->
-        <p>{{ form.weight_record }}<span>kg</span></p>
+        <p>{{ form.weight_record }}<span id="unit">kg</span></p>
         <!--リンク扱いにして↑と要素が被らないようにする-->
         <input class="button" type="submit" value="入力">
     </form>

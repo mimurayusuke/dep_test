@@ -22,6 +22,7 @@ p {
     height: 8vw;
     font-size: 100%;/*100%に指定すると、入力される文字がボックスいっぱいに拡大される。そして何故かボックスと単位の高さも揃った*/
     padding: 0;
+    border: solid;
 }
 
 .button {
