@@ -25,6 +25,12 @@ p {
     border: solid;
 }
 
+.input_area:focus {
+    border: solid blue;
+    outline: none;
+    box-shadow: 0 0 10px 2px blue;
+}
+
 .button {
     width: 25vw;
     height: 8vw;

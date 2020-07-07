@@ -13,6 +13,7 @@ from django.contrib.auth.decorators import login_required
 def hello_weight(request):
     return render(request, 'index.html')
 
+@login_required
 def hello_home(request):
     print(request)
     print(request.user)
@@ -21,6 +22,7 @@ def hello_home(request):
     menu_list = Menu.objects.all().order_by('id')
     return render(request, 'home.html', {'menu_list':menu_list})
 
+@login_required
 def input_func(request, id):
     
     if request.method == 'POST':
@@ -47,6 +49,7 @@ def input_func(request, id):
         form = RecordForm()
     return render(request, 'input.html', {'id':id, 'latest_rec':latest_rec, 'max_rec':max_rec, 'form':form})
 
+@login_required
 def edit_func(request):
     
     if request.method == 'POST':
@@ -82,6 +85,7 @@ def edit_func(request):
         menu_list = Menu.objects.all().order_by('id')
         return render(request, 'edit.html', {'menu_list':menu_list, 'form':form})
 
+@login_required
 def edit_menu_func(request, id):
     try:
         edit_menu = Menu.objects.get(pk = id)
@@ -101,6 +105,7 @@ def edit_menu_func(request, id):
     return render(request, 'edit_menu.html', {'id':id, 'edit_menu':edit_menu, 'form':form})
 
 @require_POST
+@login_required
 def delete_func(request, id):
     try:
         delete_menu = Menu.objects.get(pk = id)
@@ -151,9 +156,11 @@ def login_func(request):
         form = LoginForm()
     return render(request, 'login.html', {'form': form})
 
+@login_required
 def logout_func(request):
     logout(request)
     return redirect('login')
 
+@login_required
 def account_func(request):
     return render(request, 'account.html')

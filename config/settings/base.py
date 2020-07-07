@@ -124,3 +124,7 @@ USE_TZ = True
 #STATIC_URL = '/static/'
 #本番環境では/usr/share/nginx/html/staticに静的ファイルを集約する
 #ためbase.pyにstaticファイル関連の記述はしない。
+
+LOGIN_URL = 'login' #ログインしていないときのリダイレクト先
+#LOGIN_REDIRECT_URL = 'index' # ログイン後のリダイレクト先、各ファンクションで決めるので不要
+LOGOUT_REDIRECT_URL = 'login' # ログアウト後のリダイレクト先
