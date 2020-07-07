@@ -1,4 +1,4 @@
-.login_menu {
+.account_menu {
     font-size: 6vw;
     text-align: center;
     color: white;
@@ -7,18 +7,11 @@
     grid-column: 1 / 5;
 }
 
-
-/* common.cssでform、pにまとめた
-#login_form {
+.user_info {
     font-size: 6vw;
     text-align: center;
     grid-column: 1 / 5;
 }
-
-p {
-    margin: 2vw 0vw;
-}
-*/
 
 .input_area {
     width: 50vw;
@@ -34,13 +27,13 @@ p {
     box-shadow: 0 0 10px 2px blue;
 }
 
-#link_signup {
+.login_button {
     font-size: 6vw;
     text-align: center;
     grid-column: 1 / 5;
 }
 
-#link_signup a{
+.login_button a{
     width: 25vw;
     height: 8vw;
     font-size: 4vw;

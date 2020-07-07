@@ -10,6 +10,7 @@
     grid-column: 1 / 5;
 }
 
+/* common.cssでform、pにまとめた
 form {
     font-size: 6vw;
     text-align: center;
@@ -19,6 +20,7 @@ form {
 p {
     margin: 2vw 0vw;
 }
+*/
 
 #id_weight_record {
     width: 40vw;
@@ -36,18 +38,6 @@ p {
 
 #unit {
     margin-left: 0.5vw;
-}
-
-.button {
-    width: 25vw;
-    height: 8vw;
-    font-size: 4vw;
-    color: white;
-    background-color: blue;
-    border: solid blue;
-    border-radius: 3vw;
-    padding: 0;
-    margin: 2vw 0vw;
 }
 
 .latest_title {

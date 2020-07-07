@@ -4,10 +4,10 @@
         {% csrf_token %}
         <p>{{ form.menu_name }}</p>
     </form>
-    <div class="edit_button">
+    <div class="edit_button_area">
         <input class="button" id="edit_b" form="edit_form" type="submit" value="編集">
     </div>
-    <div class="delete_button">
+    <div class="delete_button_area">
         <input class="button" id="delete_b" form="edit_form" type="submit" value="削除" onclick="change_action()";>
     </div>
     <script type="text/javascript">

@@ -16,6 +16,7 @@
     grid-column: 1 / 5;
 }
 
+/* common.cssでform、pにまとめた
 .register_form {
     font-size: 6vw;
     text-align: center;
@@ -25,6 +26,7 @@
 p {
     margin: 2vw 0vw;
 }
+*/
 
 #id_menu_name {
     width: 50vw;
@@ -38,18 +40,6 @@ p {
     border: solid blue;
     outline: none;
     box-shadow: 0 0 10px 2px blue;
-}
-
-.button {
-    width: 25vw;
-    height: 8vw;
-    font-size: 4vw;
-    color: white;
-    background-color: blue;
-    border: solid blue;
-    border-radius: 3vw;
-    padding: 0;
-    margin: 2vw 0vw;
 }
 
 .edit_title {
