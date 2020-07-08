@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="selected_menu">{{ latest_rec.weight_menu }}</div>
+    <div class="page_title">重量記録</div>
+    <div id="selected_menu">{{ latest_rec.weight_menu }}</div>
     <form method="post" action="">
         {% csrf_token %}
-        <p>今回の重量</p>
+        <p>今回の重量(Kg)</p>
         <!--formでattrsを設定してclassを明示的にする-->
-        <p>{{ form.weight_record }}<span id="unit">kg</span></p>
+        <p>{{ form.weight_record }}</p>
         <!--リンク扱いにして↑と要素が被らないようにする-->
         <input class="button" type="submit" value="入力">
     </form>

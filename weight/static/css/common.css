@@ -1,3 +1,12 @@
+.page_title {
+    font-size: 6vw;
+    text-align: center;
+    color: white;
+    background-color:blue;
+    margin: 2vw 0vw;
+    grid-column: 1 / 5;
+}
+
 form {
     font-size: 6vw;
     text-align: center;
@@ -6,6 +15,21 @@ form {
 
 p {
     margin: 2vw 0vw;
+    width: 100%;
+}
+
+.input_area {
+    width: 50vw;
+    height: 8vw;
+    font-size: 100%;/*100%に指定すると、入力される文字がボックスいっぱいに拡大される。そして何故かボックスと単位の高さも揃った*/
+    border: solid;
+    padding: 0;
+}
+
+.input_area:focus {
+    border: solid blue;
+    outline: none;
+    box-shadow: 0 0 10px 2px blue;
 }
 
 .button {

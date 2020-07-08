@@ -1,3 +1,4 @@
+/* common.cssで.pate_titleにまとめた
 .account_menu {
     font-size: 6vw;
     text-align: center;
@@ -6,6 +7,7 @@
     margin: 2vw 0vw;
     grid-column: 1 / 5;
 }
+*/
 
 .user_info {
     font-size: 6vw;
@@ -13,10 +15,11 @@
     grid-column: 1 / 5;
 }
 
+/* common.cssで.pate_titleにまとめた
 .input_area {
     width: 50vw;
     height: 8vw;
-    font-size: 100%;/*100%に指定すると、入力される文字がボックスいっぱいに拡大される。そして何故かボックスと単位の高さも揃った*/
+    font-size: 100%;
     padding: 0;
     border: solid;
 }
@@ -26,6 +29,7 @@
     outline: none;
     box-shadow: 0 0 10px 2px blue;
 }
+*/
 
 .login_button {
     font-size: 6vw;

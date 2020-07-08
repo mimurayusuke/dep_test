@@ -16,7 +16,7 @@ class MenuForm(forms.Form):
         label='menu',
         max_length=30,
         required=True,
-        widget=forms.TextInput(attrs={'class': 'input_menu'})
+        widget=forms.TextInput(attrs={'class': 'input_area'})
     )
 
 #class MultiSelectForm(forms.Form):

@@ -36,7 +36,7 @@
     text-align: center;
     grid-row: 2 / 3;
     grid-column: 1 / 5;
-    margin-bottom: 3vw;
+    /*margin-bottom: 3vw;*/
 }
 
 ul {

@@ -1,14 +1,13 @@
+/* common.cssで.pate_titleにまとめた
 .selected_menu {
     font-size: 6vw;
     text-align: center;
     color: white;
     background-color:blue;
-    /*
-    border-radius: 3vw;
-    */
     margin: 2vw 0vw;
     grid-column: 1 / 5;
 }
+*/
 
 /* common.cssでform、pにまとめた
 form {
@@ -22,10 +21,17 @@ p {
 }
 */
 
+#selected_menu {
+    font-size: 6vw;
+    text-align: center;
+    grid-column: 1 / 5;
+}
+
+/* common.cssで.input_areaにまとめた
 #id_weight_record {
-    width: 40vw;
+    width: 50vw;
     height: 8vw;
-    font-size: 100%;/*100%に指定すると、入力される文字がボックスいっぱいに拡大される。そして何故かボックスと単位の高さも揃った*/
+    font-size: 100%;
     border: solid;
     padding: 0;
 }
@@ -35,10 +41,7 @@ p {
     outline: none;
     box-shadow: 0 0 10px 2px blue;
 }
-
-#unit {
-    margin-left: 0.5vw;
-}
+*/
 
 .latest_title {
     font-size: 5vw;

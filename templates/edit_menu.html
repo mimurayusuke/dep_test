@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+    <div class="page_title">編集・削除</div>
     <form class="edit_form" id="edit_form" method="post" action="/edit/{{ id }}">
         {% csrf_token %}
         <p>{{ form.menu_name }}</p>
