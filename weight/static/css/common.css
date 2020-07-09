@@ -7,6 +7,17 @@
     grid-column: 1 / 5;
 }
 
+.icon {
+    text-align: center;
+    margin: 2vw;
+    grid-column: 1 / 5;
+}
+
+.icon img {
+    width: 25vw;
+    height: 35vw;
+}
+
 form {
     font-size: 6vw;
     text-align: center;

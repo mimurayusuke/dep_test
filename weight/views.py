@@ -141,9 +141,8 @@ def login_func(request):
         print('ユーザ名' + username + ' パスワード' + password)
         print(request.POST)
         user = authenticate(request, username=username, password=password)
-        print(user)
         if user is not None:
-            print('ok')
+            print(str(user) + 'login ok')
             login(request, user)
             #これでhome/user.pk/でアクセスできる。
             #return redirect('home', pk=user.pk)
@@ -151,10 +150,12 @@ def login_func(request):
             return redirect('home')
         else:
             print('no valid')
-            form= LoginForm()
+            error_message = "ユーザ名またはパスワードが不正です。"
+            form = LoginForm()
+            return render(request, 'login.html', {'form': form, 'error_message': error_message})    
     else:
         form = LoginForm()
-    return render(request, 'login.html', {'form': form})
+        return render(request, 'login.html', {'form': form})
 
 @login_required
 def logout_func(request):

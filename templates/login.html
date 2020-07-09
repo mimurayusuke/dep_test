@@ -2,11 +2,14 @@
 
 {% block content %}
     <div class="page_title">ログイン</div>
+    {% if error_message %}
+        <div class="login_error">{{ error_message }}</div>
+    {% endif %}
     <form id="login_form" method="post" action="">
         {% csrf_token %}
         <p>ユーザ名</p>
         <p>{{ form.username }}</p>
-        <p>{{ form.username.errors }}</p>
+        <p>{{ form.errors }}</p>
         <p>パスワード</p>
         <p>{{ form.password }}</p>
         <p>{{ form.password.errors }}</p>
@@ -16,7 +19,8 @@
     <div id="link_signup">
         <p>or</p>
         <a href="{% url 'signup' %}" class="button">新規登録</a>
-    <div>
-
+    </div>
+    {% load static %}
+    <div class="icon"><img src="{% static 'image/29640.jpg' %}"></div>
 
 {% endblock %}

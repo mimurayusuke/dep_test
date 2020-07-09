@@ -32,5 +32,8 @@
         <div class="edit_menu"><a href="edit/{{menu.id}}" data-value="{{menu.id}}">{{menu.menu_name}}</a></div>    
         
     {% endfor %}
+
+    {% load static %}
+    <div class="icon"><img src="{% static 'image/29640.jpg' %}"></div>
     
 {% endblock %}
