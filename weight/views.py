@@ -19,7 +19,7 @@ def hello_home(request):
     print(request.user)
     print(request.user.id)
     print(request.user.is_authenticated)
-    menu_list = Menu.objects.all().order_by('id')
+    menu_list = Menu.objects.filter(user__id = request.user.id).order_by('id')
     return render(request, 'home.html', {'menu_list':menu_list})
 
 @login_required
@@ -56,22 +56,25 @@ def edit_func(request):
         form = MenuForm(request.POST or None)
         if form.is_valid():
             register_menu = Menu()
+            print(form)
             register_menu.menu_name = form.cleaned_data['menu_name']
+            register_menu.user = request.user
 
             #登録するメニューが既に存在する場合はエラーメッセージを返し、存在しない時に登録する。
-            if  Menu.objects.filter(menu_name = register_menu.menu_name).exists():
+            if  Menu.objects.filter(user__id = request.user.id, menu_name = register_menu.menu_name).exists():
                 error_message = "は既に登録されています。"
                 form = MenuForm()
-                menu_list = Menu.objects.all().order_by('id')
+                menu_list = Menu.objects.filter(user__id = request.user.id).order_by('id')
                 return render(request, 'edit.html', {'menu_list':menu_list, 'form':form, 'error_message':error_message, 'registered_menu':register_menu.menu_name})
             else:
                 Menu.objects.create(
                     menu_name = register_menu.menu_name,
+                    user = register_menu.user
                 )
                 #新規登録したメニューの記録を0kgで作成する。
                 #この処理がない場合、home画面で新規登録したメニューをクリックした際に、レコードを探してこれない
                 #ためエラーとなる。
-                new_menu_id = Menu.objects.get(menu_name = register_menu.menu_name)
+                new_menu_id = Menu.objects.get(user__id = request.user.id, menu_name = register_menu.menu_name)
                 print(new_menu_id.id)
                 Record.objects.create(
                 weight_menu = Menu(id = new_menu_id.id),
@@ -82,7 +85,7 @@ def edit_func(request):
 
     else:
         form = MenuForm()
-        menu_list = Menu.objects.all().order_by('id')
+        menu_list = Menu.objects.filter(user__id = request.user.id).order_by('id')
         return render(request, 'edit.html', {'menu_list':menu_list, 'form':form})
 
 @login_required
@@ -95,6 +98,12 @@ def edit_menu_func(request, id):
     if request.method == 'POST':
         form = MenuForm(request.POST)
         if form.is_valid():
+            #入力された種目名が既存種目名と同じ場合は、エラーメッセージを表示する。
+            print('not')
+            if  Menu.objects.filter(menu_name = form.cleaned_data['menu_name'], user__id = request.user.id).exists():
+                error_message = "は既に使用されています。"
+                return render(request, 'edit_menu.html', {'id':id, 'input_menu':form.cleaned_data['menu_name'], 'form':form, 'error_message':error_message})
+
             edit_menu.menu_name = form.cleaned_data['menu_name']
             edit_menu.save()
             return redirect('edit')
