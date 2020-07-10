@@ -5,5 +5,5 @@
     <div class="user_info">ユーザ名：{{ request.user }}</div>
     <div class="login_button"><a href="{% url 'logout' %}">ログアウト</a></div>
     {% load static %}
-    <div class="icon"><img src="{% static 'image/29640.jpg' %}"></div>
+    <div class="icon"><a href="{% url 'home' %}"><img src="{% static 'image/29640.jpg' %}"></a></div>
 {% endblock %}

@@ -14,13 +14,17 @@ def hello_weight(request):
     return render(request, 'index.html')
 
 @login_required
-def hello_home(request):
+def home_func(request):
     print(request)
+    print(request.path)
     print(request.user)
     print(request.user.id)
     print(request.user.is_authenticated)
     menu_list = Menu.objects.filter(user__id = request.user.id).order_by('id')
-    return render(request, 'home.html', {'menu_list':menu_list})
+    if request.path == '/home':
+        return render(request, 'home.html', {'menu_list':menu_list})
+    elif request.path =='/result_menu':
+        return render(request, 'result_menu.html', {'menu_list':menu_list})
 
 @login_required
 def input_func(request, id):
@@ -81,7 +85,7 @@ def edit_func(request):
                 weight_record = 0.00,
             )
 
-            return redirect('edit')
+            return redirect('edit_menu')
 
     else:
         form = MenuForm()
@@ -106,7 +110,7 @@ def edit_menu_func(request, id):
 
             edit_menu.menu_name = form.cleaned_data['menu_name']
             edit_menu.save()
-            return redirect('edit')
+            return redirect('edit_menu')
 
     #MenuFormの項目であるmenu_nameに対して、↑で取得したmodelのデータをセットする。
     form = MenuForm({'menu_name':edit_menu.menu_name})
@@ -122,7 +126,7 @@ def delete_func(request, id):
         raise Http404
     delete_menu.delete()
 
-    return redirect('edit')
+    return redirect('edit_menu')
 
 def signup_func(request):
     if request.method == 'POST':

@@ -17,5 +17,5 @@
     <div class="record max_title">MAX記録</div>
     <div class="record max_record">{{max_rec.weight_record}}Kg / {{max_rec.created_at|date:"Y-m-d"}}</div>
     {% load static %}
-    <div class="icon"><img src="{% static 'image/29640.jpg' %}"></div>
+    <div class="icon"><a href="{% url 'home' %}"><img src="{% static 'image/29640.jpg' %}"></a></div>
 {% endblock %}
