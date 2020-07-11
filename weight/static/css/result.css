@@ -10,3 +10,23 @@
     margin-top: 2vw;
     grid-column: 1 / 5;
 }
+
+.link_order {
+    font-size: 6vw;
+    text-align: center;
+    grid-column: 1 / 5;
+}
+
+.link_order a{
+    width: 30vw;
+    height: 8vw;
+    font-size: 4vw;
+    color: white;
+    background-color: blue;
+    border: solid blue;
+    border-radius: 3vw;
+    padding-top: 2vw;
+    margin: 2vw 0vw;
+    display: inline-block;
+    text-decoration: none;
+}

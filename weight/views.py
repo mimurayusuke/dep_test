@@ -185,12 +185,17 @@ def account_func(request):
     return render(request, 'account.html')
 
 @login_required
-def result_func(request, id):
+def result_func(request, id, order_type):
     try:
         confirm_menu = Menu.objects.get(pk = id)
     except Menu.DoesNotExist:
         raise Http404
     #外部キーの値を取得する時は定義した外部キーの項目名にアンダーバーを２つ続けて、取得したいデータの値を指定する。
-    results = Record.objects.filter(weight_menu__id = id).order_by('weight_record')
+    print(order_type)
+    if order_type == 'day':
+        results = Record.objects.filter(weight_menu__id = id).order_by('-created_at')
+    elif order_type == 'weight':
+        results = Record.objects.filter(weight_menu__id = id).order_by('-weight_record')
+    
     print(results)
-    return render(request, 'result.html', {'id':id, 'confirm_menu':confirm_menu, 'results':results})
+    return render(request, 'result.html', {'id':id, 'confirm_menu':confirm_menu, 'results':results, 'order_type':order_type})

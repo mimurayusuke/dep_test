@@ -2,7 +2,13 @@
 
 {% block content %}
     <div class="page_title">{{ confirm_menu.menu_name }}の記録一覧</div>
-
+    <div class="link_order">
+        {% if order_type == 'day' %}
+            <a href="{% url 'result' id=confirm_menu.id order_type='weight' %}" class="button">記録順表示</a>
+        {% elif order_type == 'weight' %}
+            <a href="{% url 'result' id=confirm_menu.id order_type='day' %}" class="button">日付順表示</a>
+        {% endif %}
+    </div>
     <div class="result_date">記録 / 日付</div>
     {% for result in results %}
 
