@@ -55,9 +55,9 @@ p {
     width: 25vw;
     height: 8vw;
     font-size: 4vw;
-    color: white;
-    background-color: blue;
-    border: solid blue;
+    color: black;
+    background-color: skyblue;
+    border: solid skyblue;
     border-radius: 3vw;
     padding-top: 2vw;
     margin: 2vw 0vw;

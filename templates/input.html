@@ -1,8 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="page_title">重量記録</div>
-    <div id="selected_menu">{{ latest_rec.weight_menu }}</div>
+    <div class="page_title">{{ latest_rec.weight_menu }}の重量記録</div>
     <form method="post" action="">
         {% csrf_token %}
         <p>今回の重量(Kg)</p>
