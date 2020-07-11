@@ -1,0 +1,12 @@
+.result_date {
+    font-size: 5vw;
+    text-align: center;
+    grid-column: 1 / 5;
+}
+
+.result {
+    font-size: 5vw;
+    text-align: center;
+    margin-top: 2vw;
+    grid-column: 1 / 5;
+}

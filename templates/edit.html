@@ -1,39 +1,29 @@
 {% extends 'base.html' %}
-
 {% block content %}
-    <div class="page_title">種目登録</div>
+    <div class="page_title">編集・削除</div>
     {% if error_message %}
-        <div class="register_error">"{{ registered_menu }}"{{ error_message }}</div>
+        <div class="edit_error">"{{ input_menu }}"{{ error_message }}</div>
     {% endif %}
-    <form class="register_form" method="post" action="">
+    <form class="edit_form" id="edit_form" method="post" action="/edit/{{ id }}">
         {% csrf_token %}
         <p>{{ form.menu_name }}</p>
-        <input class="button" type="submit" value="登録">
     </form>
-
-    <div class="page_title">種目編集</div>
-    
-    <!--
-    <form class="edit_form" method="post" action="">
-        {% csrf_token %}
-        <p>
-        <select multiple class="edit_menu_list" size="4">
-            {% for menu in menu_list %}
-                <option>{{ menu.menu_name }}</option>
-            {% endfor %}
-        </select>
-        </p>
-        <input class="button" type="submit" value="削除">
-    </form>
-    -->
-
-    {% for menu in menu_list %}
-
-        <div class="edit_menu"><a href="edit/{{menu.id}}" data-value="{{menu.id}}">{{menu.menu_name}}</a></div>    
-        
-    {% endfor %}
-
+    <div class="edit_button_area">
+        <input class="button" id="edit_b" form="edit_form" type="submit" value="編集">
+    </div>
+    <div class="delete_button_area">
+        <input class="button" id="delete_b" form="edit_form" type="submit" value="削除" onclick="change_action()";>
+    </div>
     {% load static %}
     <div class="icon"><a href="{% url 'home' %}"><img src="{% static 'image/29640.jpg' %}"></a></div>
-    
+    <script type="text/javascript">
+        function change_action(){
+            var result = confirm('本当に削除しますか？');
+            //alertに対してnoの場合の分岐を追加すること。
+            if (result) {
+                document.getElementById('edit_form').action="/delete/{{ id }}"
+            }
+
+        }
+    </script>
 {% endblock %}

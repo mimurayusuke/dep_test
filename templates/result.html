@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="page_title">{{ confirm_menu.menu_name }}の記録一覧</div>
+
+    <div class="result_date">記録 / 日付</div>
+    {% for result in results %}
+
+        <div class="result">{{ result.weight_record }}kg / {{ result.created_at|date:"Y-m-d" }}</div>    
+        
+    {% endfor %}
+    {% load static %}
+    <div class="icon"><a href="{% url 'home' %}"><img src="{% static 'image/29640.jpg' %}"></a></div>
+{% endblock %}

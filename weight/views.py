@@ -20,9 +20,14 @@ def home_func(request):
     print(request.user)
     print(request.user.id)
     print(request.user.is_authenticated)
+    print(request.COOKIES)
     menu_list = Menu.objects.filter(user__id = request.user.id).order_by('id')
+    #home.htmlとresult_menu.htmlはタイトルが異なるだけで表示画面が同じなので、
+    #アクセスパスによってrenderする画面を切り替える。
+    #ホームへのアクセスがあった場合は、こちらで処理。
     if request.path == '/home':
         return render(request, 'home.html', {'menu_list':menu_list})
+    #記録確認へのアクセスがあった場合は、こちらで処理。
     elif request.path =='/result_menu':
         return render(request, 'result_menu.html', {'menu_list':menu_list})
 
@@ -54,7 +59,7 @@ def input_func(request, id):
     return render(request, 'input.html', {'id':id, 'latest_rec':latest_rec, 'max_rec':max_rec, 'form':form})
 
 @login_required
-def edit_func(request):
+def edit_menu_func(request):
     
     if request.method == 'POST':
         form = MenuForm(request.POST or None)
@@ -69,7 +74,7 @@ def edit_func(request):
                 error_message = "は既に登録されています。"
                 form = MenuForm()
                 menu_list = Menu.objects.filter(user__id = request.user.id).order_by('id')
-                return render(request, 'edit.html', {'menu_list':menu_list, 'form':form, 'error_message':error_message, 'registered_menu':register_menu.menu_name})
+                return render(request, 'edit_menu.html', {'menu_list':menu_list, 'form':form, 'error_message':error_message, 'registered_menu':register_menu.menu_name})
             else:
                 Menu.objects.create(
                     menu_name = register_menu.menu_name,
@@ -90,10 +95,10 @@ def edit_func(request):
     else:
         form = MenuForm()
         menu_list = Menu.objects.filter(user__id = request.user.id).order_by('id')
-        return render(request, 'edit.html', {'menu_list':menu_list, 'form':form})
+        return render(request, 'edit_menu.html', {'menu_list':menu_list, 'form':form})
 
 @login_required
-def edit_menu_func(request, id):
+def edit_func(request, id):
     try:
         edit_menu = Menu.objects.get(pk = id)
     except Menu.DoesNotExist:
@@ -106,7 +111,7 @@ def edit_menu_func(request, id):
             print('not')
             if  Menu.objects.filter(menu_name = form.cleaned_data['menu_name'], user__id = request.user.id).exists():
                 error_message = "は既に使用されています。"
-                return render(request, 'edit_menu.html', {'id':id, 'input_menu':form.cleaned_data['menu_name'], 'form':form, 'error_message':error_message})
+                return render(request, 'edit.html', {'id':id, 'input_menu':form.cleaned_data['menu_name'], 'form':form, 'error_message':error_message})
 
             edit_menu.menu_name = form.cleaned_data['menu_name']
             edit_menu.save()
@@ -115,7 +120,7 @@ def edit_menu_func(request, id):
     #MenuFormの項目であるmenu_nameに対して、↑で取得したmodelのデータをセットする。
     form = MenuForm({'menu_name':edit_menu.menu_name})
 
-    return render(request, 'edit_menu.html', {'id':id, 'edit_menu':edit_menu, 'form':form})
+    return render(request, 'edit.html', {'id':id, 'edit_menu':edit_menu, 'form':form})
 
 @require_POST
 @login_required
@@ -178,3 +183,14 @@ def logout_func(request):
 @login_required
 def account_func(request):
     return render(request, 'account.html')
+
+@login_required
+def result_func(request, id):
+    try:
+        confirm_menu = Menu.objects.get(pk = id)
+    except Menu.DoesNotExist:
+        raise Http404
+    #外部キーの値を取得する時は定義した外部キーの項目名にアンダーバーを２つ続けて、取得したいデータの値を指定する。
+    results = Record.objects.filter(weight_menu__id = id).order_by('weight_record')
+    print(results)
+    return render(request, 'result.html', {'id':id, 'confirm_menu':confirm_menu, 'results':results})
