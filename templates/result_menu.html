@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="page_title">確認対象種目</div>
+    <div class="page_title">確認する種目を選択</div>
     {% for menu in menu_list %}
 
         <div class="menu"><a href="result/{{menu.id}}/day" data-value="{{menu.id}}">{{menu.menu_name}}</a></div>    
