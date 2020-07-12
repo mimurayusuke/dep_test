@@ -2,7 +2,7 @@ from django.urls import path, re_path
 from . import views
 
 urlpatterns = [
-    re_path(r'^$', views.hello_weight, name='hello_weight'),
+    re_path(r'^$', views.home_func, name='home'),
     path('home', views.home_func, name='home'),
     path('input/<int:id>', views.input_func, name='input'),
     path('edit_menu', views.edit_menu_func, name='edit_menu'),
