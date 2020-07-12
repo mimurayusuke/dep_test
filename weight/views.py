@@ -25,12 +25,16 @@ def home_func(request):
     menu_list = Menu.objects.filter(user__id = request.user.id).order_by('id')
     #home.htmlとresult_menu.htmlはタイトルが異なるだけで表示画面が同じなので、
     #アクセスパスによってrenderする画面を切り替える。
-    #ホーム(/home)またはurl直接アクセス(/)へのアクセスがあった場合は、こちらで処理。
-    if request.path == '/home' or '/':
+    #ホーム(/home)へのアクセスがあった場合は、こちらで処理。
+    if request.path == '/home':
         return render(request, 'home.html', {'menu_list':menu_list})
     #記録確認へのアクセスがあった場合は、こちらで処理。
     elif request.path =='/result_menu':
         return render(request, 'result_menu.html', {'menu_list':menu_list})
+    #url直接アクセス(/)があった場合は、こちらで処理。'/home' or '/'とすると、'/'が条件にマッチしてしまうため
+    #/result_menuへのアクセスも/へのアクセスとして処理されてしまう。
+    elif request.path =='/':
+        return render(request, 'home.html', {'menu_list':menu_list})
 
 @login_required
 def input_func(request, id):
