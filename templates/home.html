@@ -6,8 +6,5 @@
         <div class="menu"><a href="input/{{menu.id}}" data-value="{{menu.id}}">{{menu.menu_name}}</a></div>    
         
     {% endfor %}
-
-    {% load static %}
-    <div class="icon"><a href="{% url 'home' %}"><img src="{% static 'image/29640.jpg' %}"></a></div>
-    
+    {% load static %}    
 {% endblock %}

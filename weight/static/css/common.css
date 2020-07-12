@@ -13,6 +13,20 @@
     grid-column: 1 / 5;
 }
 
+.icon a {
+    display: inline-block;
+    text-decoration: none;
+
+}
+
+.icon_a #always_home {
+    margin: 0;
+    font-size: 6vw;
+    color: black;
+    border: solid black;
+    border-radius: 3vw;
+}
+
 .icon img {
     width: 25vw;
     height: 35vw;

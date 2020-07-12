@@ -10,11 +10,20 @@
         <!--リンク扱いにして↑と要素が被らないようにする-->
         <input class="button" type="submit" value="入力">
     </form>
-
-    <div class="record latest_title">前回の記録</div>
-    <div class="record latest_record">{{latest_rec.weight_record}}Kg / {{latest_rec.created_at|date:"Y-m-d"}}</div>
+    <div class="record latest_title" id="record latest_title">前回の記録</div>
+    <div class="record latest_record" id="record latest_record">{{latest_rec.weight_record}}Kg / {{latest_rec.created_at|date:"Y-m-d"}}</div>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="input_success_message" id="input_success_message">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
     <div class="record max_title">MAX記録</div>
     <div class="record max_record">{{max_rec.weight_record}}Kg / {{max_rec.created_at|date:"Y-m-d"}}</div>
     {% load static %}
-    <div class="icon"><a href="{% url 'home' %}"><img src="{% static 'image/29640.jpg' %}"></a></div>
+    <script type="text/javascript">
+        if (document.getElementById("input_success_message") != null) {
+            document.getElementById("record latest_title").innerHTML = '今回の記録'
+            document.getElementById("record latest_record").style.backgroundColor = 'red'
+        }
+    </script>
 {% endblock %}

@@ -43,6 +43,14 @@ p {
 }
 */
 
+.input_success_message {
+    color: red;
+    font-size: 5vw;
+    text-align: center;
+    margin-top: 2vw;
+    grid-column: 1 / 5;
+}
+
 .latest_title {
     font-size: 5vw;
     text-align: center;

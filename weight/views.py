@@ -7,6 +7,7 @@ from django.views.decorators.http import require_POST
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 # Create your views here.
 
@@ -48,6 +49,7 @@ def input_func(request, id):
 
             latest_rec = Record.objects.filter(weight_menu__id= id).latest('created_at')
             max_rec = Record.objects.filter(weight_menu__id= id).order_by('weight_record').last()
+            messages.success(request, '記録完了')
             return redirect('input', id)
 
     else:

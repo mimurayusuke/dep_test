@@ -15,7 +15,6 @@
         <input class="button" id="delete_b" form="edit_form" type="submit" value="削除" onclick="change_action()";>
     </div>
     {% load static %}
-    <div class="icon"><a href="{% url 'home' %}"><img src="{% static 'image/29640.jpg' %}"></a></div>
     <script type="text/javascript">
         function change_action(){
             var result = confirm('本当に削除しますか？');
