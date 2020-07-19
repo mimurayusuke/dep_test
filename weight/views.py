@@ -46,6 +46,9 @@ def input_func(request, id):
 
             register_record.weight_record = form.cleaned_data['weight_record']
 
+            checked = form.cleaned_data['next_weight_up']
+            print(checked)
+
             Record.objects.create(
                 weight_menu = Menu(id = id),
                 weight_record = register_record.weight_record,

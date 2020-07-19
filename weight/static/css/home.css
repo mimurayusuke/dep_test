@@ -59,8 +59,7 @@ li {
     font-size: 4.5vw;
     color: black;
     width: 100%;
-    background-color: skyblue;
-    border: solid skyblue;
+    border: solid black;
     border-radius: 2vw;
     margin: 0 0.5vw;
 }
@@ -82,6 +81,7 @@ li:not(:last-child){
     background-color: skyblue;
     margin: 2vw 0vw;
     grid-column: 2 / 4;
+    border: solid black;
     border-radius: 3vw;
 }
 

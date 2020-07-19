@@ -78,11 +78,27 @@ p {
     grid-column: 1 / 5;
 }
 
-/*
-.record {
-    font-size: 5vw;
-    text-align: center;
-    margin-top: 2vw;
-    grid-column: 1 / 5;
+input[type="checkbox"] {
+    opacity: 0;
+    appearance: none;
+    position: absolute;
 }
-*/
+
+.next_weight_up_label {
+    display: inline-block;
+    font-size: 4vw;
+    color: black;
+    border: solid;
+    border-radius: 3vw;
+    padding: 2vw;
+}
+
+input[type="checkbox"]:checked + .next_weight_up_label {
+    display: inline-block;
+    font-size: 4vw;
+    color: black;
+    border: solid;
+    border-radius: 3vw;
+    padding: 2vw;
+    background-color: violet;
+}

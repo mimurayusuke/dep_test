@@ -11,6 +11,13 @@ class RecordForm(forms.Form):
         widget=forms.NumberInput(attrs={'class': 'input_area'})
     )
 
+    next_weight_up = forms.BooleanField(
+        initial= False,
+        required= False,
+        widget= forms.CheckboxInput(attrs={'class': 'next_weight_up_class', 'id': 'next_weight_up_id'})
+
+    )
+
 class MenuForm(forms.Form):
     menu_name = forms.CharField(
         label='menu',

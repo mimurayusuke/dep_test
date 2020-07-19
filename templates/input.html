@@ -8,6 +8,10 @@
         <!--formでattrsを設定してclassを明示的にする-->
         <p>{{ form.weight_record }}</p>
         <!--リンク扱いにして↑と要素が被らないようにする-->
+        <p>
+            {{ form.next_weight_up }}
+            <label for="next_weight_up_id" class="next_weight_up_label">次回重量UP</labal>
+        </p>
         <input class="button" type="submit" value="入力">
     </form>
     <div class="record latest_title" id="record latest_title">前回の記録</div>
