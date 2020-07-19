@@ -57,6 +57,18 @@ def input_func(request, id):
             return redirect('input', id)
 
     else:
+        #メニューを保持するユーザ以外のアクセスを拒否する
+        try:
+            menu_user_id = Menu.objects.get(id = id)
+        except Menu.DoesNotExist:
+            raise Http404
+        
+        print('userのid', request.user.id, 'menu保持者のid', menu_user_id.user.id)
+        
+        if request.user.id != menu_user_id.user.id:
+            print('false')
+            return redirect('home')
+        
         #外部キーの値を取得する時は定義した外部キーの項目名にアンダーバーを２つ続けて、取得したいデータの値を指定する。
         latest_rec = Record.objects.filter(weight_menu__id= id).latest('created_at')
         max_rec = Record.objects.filter(weight_menu__id= id).order_by('weight_record').last()
@@ -106,9 +118,16 @@ def edit_menu_func(request):
 @login_required
 def edit_func(request, id):
     try:
-        edit_menu = Menu.objects.get(pk = id)
+        edit_menu = Menu.objects.get(id = id)
     except Menu.DoesNotExist:
         raise Http404
+
+    #メニューを保持するユーザ以外のアクセスを拒否する
+    print('userのid', request.user.id, 'menu保持者のid', edit_menu.user.id)
+    
+    if request.user.id != edit_menu.user.id:
+        print('false')
+        return redirect('home')
     
     if request.method == 'POST':
         form = MenuForm(request.POST)
@@ -132,7 +151,7 @@ def edit_func(request, id):
 @login_required
 def delete_func(request, id):
     try:
-        delete_menu = Menu.objects.get(pk = id)
+        delete_menu = Menu.objects.get(id = id)
     except Menu.DoesNotExist:
         raise Http404
     delete_menu.delete()
@@ -193,9 +212,15 @@ def account_func(request):
 @login_required
 def result_func(request, id, order_type):
     try:
-        confirm_menu = Menu.objects.get(pk = id)
+        confirm_menu = Menu.objects.get(id = id)
     except Menu.DoesNotExist:
         raise Http404
+    #メニューを保持するユーザ以外のアクセスを拒否する
+    print('userのid', request.user.id, 'menu保持者のid', confirm_menu.user.id)
+    
+    if request.user.id != confirm_menu.user.id:
+        print('false')
+        return redirect('home')
     #外部キーの値を取得する時は定義した外部キーの項目名にアンダーバーを２つ続けて、取得したいデータの値を指定する。
     print(order_type)
     if order_type == 'day':
