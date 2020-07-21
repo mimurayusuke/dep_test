@@ -14,7 +14,7 @@
             {{ form.next_weight_up }}
             <label for="next_weight_up_id" class="next_weight_up_label">次回重量UP</labal>
         </p>
-        <input class="button" type="submit" value="入力">
+        <input class="button" type="button" value="入力" onclick="submit();">
     </form>
     <div class="record latest_title" id="record latest_title">前回の記録</div>
     <div class="record latest_record" id="record latest_record">{{latest_rec.weight_record}}Kg / {{latest_rec.created_at|date:"Y-m-d"}}</div>
