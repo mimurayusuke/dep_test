@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
 class Menu(models.Model):
@@ -15,8 +16,9 @@ class Menu(models.Model):
 class Record(models.Model):
     weight_menu = models.ForeignKey(Menu, on_delete=models.CASCADE)
     weight_record = models.DecimalField(max_digits=5, decimal_places=2, default=0)
+    rep = models.IntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(100)])
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return "PK:{0}, FK:{1}, weight:{2}, created:{3}".format(self.pk, self.weight_menu, self.weight_record, self.created_at)
+        return "PK:{0}, FK:{1}, weight:{2}, rep:{3}, created:{4}".format(self.pk, self.weight_menu, self.weight_record, self.rep, self.created_at)

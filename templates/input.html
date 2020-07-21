@@ -4,10 +4,12 @@
     <div class="page_title">{{ latest_rec.weight_menu }}の重量記録</div>
     <form method="post" action="">
         {% csrf_token %}
-        <p>今回の重量(Kg)</p>
-        <!--formでattrsを設定してclassを明示的にする-->
+        <p>重量(Kg)</p>
         <p>{{ form.weight_record }}</p>
-        <!--リンク扱いにして↑と要素が被らないようにする-->
+        <p>回数(Rep)</p>
+        <p>{{ form.rep }}</p>
+        <p id="volume_label">負荷量(Kg*Rep)</p>
+        <p id="volume_var">0Kg</p>
         <p>
             {{ form.next_weight_up }}
             <label for="next_weight_up_id" class="next_weight_up_label">次回重量UP</labal>
@@ -28,5 +30,27 @@
             document.getElementById("record latest_title").innerHTML = '今回の記録'
             document.getElementById("record latest_record").style.backgroundColor = 'red'
         }
+
+        var volume_var = document.getElementById('volume_var');
+        var weight_record_area = document.getElementById('weight_record_area');
+        var rep_area = document.getElementById('rep_area');
+
+        weight_record_area.addEventListener('change', volume_calc, false);
+        rep_area.addEventListener('change', volume_calc, false);
+        
+        function volume_calc() {
+            console.log(weight_record_area.value);
+            console.log(rep_area.value);
+            var wra = weight_record_area.value;
+            var re = rep_area.value;
+            var result = wra * re;
+            console.log(result);
+
+            volume_var.innerHTML = result + 'Kg'
+        }
+
+
+
+
     </script>
 {% endblock %}

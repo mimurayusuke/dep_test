@@ -45,13 +45,15 @@ def input_func(request, id):
             register_record = Record()
 
             register_record.weight_record = form.cleaned_data['weight_record']
-
+            register_record.rep = form.cleaned_data['rep']
+            print(register_record.rep)
             checked = form.cleaned_data['next_weight_up']
             print(checked)
 
             Record.objects.create(
                 weight_menu = Menu(id = id),
                 weight_record = register_record.weight_record,
+                rep = register_record.rep,
             )
 
             latest_rec = Record.objects.filter(weight_menu__id= id).latest('created_at')

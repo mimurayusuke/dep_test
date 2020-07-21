@@ -2,13 +2,30 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .models import Menu
 
+class MenuForm(forms.Form):
+    menu_name = forms.CharField(
+        label='menu',
+        max_length=30,
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'input_area'})
+    )
+
 class RecordForm(forms.Form):
     weight_record = forms.DecimalField(
         label='record',
         max_digits=5,
         decimal_places=2,
         required=True,
-        widget=forms.NumberInput(attrs={'class': 'input_area'})
+        widget=forms.NumberInput(attrs={'class': 'input_area', 'id': 'weight_record_area'})
+    )
+
+    rep = forms.IntegerField(
+        label='rep',
+        max_value=100,
+        min_value=1,
+        required=True,
+        widget=forms.NumberInput(attrs={'class': 'input_area', 'id': 'rep_area'})
+
     )
 
     next_weight_up = forms.BooleanField(
@@ -16,14 +33,6 @@ class RecordForm(forms.Form):
         required= False,
         widget= forms.CheckboxInput(attrs={'class': 'next_weight_up_class', 'id': 'next_weight_up_id'})
 
-    )
-
-class MenuForm(forms.Form):
-    menu_name = forms.CharField(
-        label='menu',
-        max_length=30,
-        required=True,
-        widget=forms.TextInput(attrs={'class': 'input_area'})
     )
 
 #class MultiSelectForm(forms.Form):
