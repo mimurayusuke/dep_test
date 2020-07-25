@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, Http404
 from django.http.response import HttpResponse
-from django.db.models import Max
+from django.db.models import Max, Sum
 from .models import Menu, Record
 from .forms import RecordForm, MenuForm, SignUpForm, LoginForm
 from django.views.decorators.http import require_POST
@@ -77,10 +77,30 @@ def input_func(request, id):
         #外部キーの値を取得する時は定義した外部キーの項目名にアンダーバーを２つ続けて、取得したいデータの値を指定する。
         latest_rec = Record.objects.filter(weight_menu__id= id).latest('created_at')
         max_rec = Record.objects.filter(weight_menu__id= id).order_by('weight_record').last()
+        test_latest_created_at = Record.objects.filter(weight_menu__id= id).values().latest('created_at')
+        test_latest_created_at_2 = Record.objects.filter(weight_menu__id = id).aggregate(Max('created_at'))
+        print('Queryset型で取得', latest_rec)
+        print('辞書型で取得', test_latest_created_at)
+        print('辞書型で取得してキーを指定', test_latest_created_at['created_at'])
+        print('aggregateで取得', test_latest_created_at_2)
+        print('aggregateで取得してキーを指定してデータ変換', test_latest_created_at_2['created_at__max'].date())
+
+        max_created_at = Record.objects.filter(weight_menu__id = id).aggregate(Max('created_at'))
+        max_created_at_date = max_created_at['created_at__max'].date()
+        print(max_created_at_date)
+        weight_sum = Record.objects.filter(weight_menu__id = id, created_at__startswith = max_created_at_date).aggregate(Sum('weight_record'))
+        rep_sum = Record.objects.filter(weight_menu__id = id, created_at__startswith = max_created_at_date).aggregate(Sum('rep'))
+        print('重量合計', weight_sum, 'Rep合計', rep_sum)
+        volume = weight_sum['weight_record__sum'] * rep_sum['rep__sum']
+        print(volume)
+
+
+
         #getの時は、空のフォームを作成してレンダリング
         form = RecordForm()
-    return render(request, 'input.html', {'id':id, 'latest_rec':latest_rec, 'max_rec':max_rec, 'form':form})
-
+    #return render(request, 'input.html', {'id':id, 'max_created_at_date':max_created_at_date, 'latest_rec_list':latest_rec_list, 'latest_rec':latest_rec, 'max_rec':max_rec, 'form':form})
+    return render(request, 'input.html', {'id':id, 'latest_rec':latest_rec, 'max_created_at_date':max_created_at_date, 'volume': volume, 'form':form})
+    
 @login_required
 def edit_menu_func(request):
     
@@ -111,7 +131,7 @@ def edit_menu_func(request):
                 Record.objects.create(
                 weight_menu = Menu(id = new_menu_id.id),
                 weight_record = 0.00,
-            )
+                )
 
             return redirect('edit_menu')
 

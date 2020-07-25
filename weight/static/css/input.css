@@ -58,6 +58,13 @@ p {
     grid-column: 1 / 5;
 }
 
+.latest_date {
+    font-size: 5vw;
+    text-align: center;
+    margin-top: 2vw;
+    grid-column: 1 / 5;
+}
+
 .latest_record {
     font-size: 5vw;
     text-align: center;
