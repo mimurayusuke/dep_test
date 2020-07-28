@@ -1,7 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="page_title">{{ latest_rec.weight_menu }}の重量記録</div>
+    <!--
+        <div class="page_title">{{ latest_rec.weight_menu }}の重量記録</div>
+    -->
+    <div class="page_title">重量を記録</div>
+    <div class="selected_menu_title">種目</div>
+    <div class="selected_menu_title">{{ latest_rec.weight_menu }}</div>
     <form method="post" action="">
         {% csrf_token %}
         <p>重量(Kg)</p>
@@ -18,9 +23,13 @@
         -->
         <input class="button" type="button" value="入力" onclick="submit();">
     </form>
+
+    <!--
     <div class="record latest_title" id="record latest_title">前回の記録</div>
     <div class="latest_date">{{ max_created_at_date|date:"Y-m-d" }}</div>
     <div class="latest_date">ボリューム:{{ volume }}Kg</div>
+    -->
+    
     <!--
     <div class="record latest_record" id="record latest_record">{{latest_rec.weight_record}}Kg / {{latest_rec.created_at|date:"Y-m-d"}}</div>
     -->

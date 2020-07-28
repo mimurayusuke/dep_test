@@ -17,7 +17,7 @@
 </head>
 <body>
 <div class="container">
-    <div class="title"><span>筋トレ手帳</span></div>
+    <div class="title"><img src="{% static 'image/4240.jpg' %}"><span>筋トレ手帳</span><img src="{% static 'image/4240.jpg' %}"></div>
     {% block content %}
     {% endblock %}
     {% if  '/edit/' in request.path%}

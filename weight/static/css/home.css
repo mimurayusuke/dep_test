@@ -9,33 +9,18 @@
     background: white;
     color: blue;
     grid-column: 1 / 5;
-    display: flex;
     justify-content: center;
+    margin-top: 2.5vh;
 }
 
-/*
-.title span {
-    position: relative;
-}
-*/
-/*
-.title span::before, .title span::after {
-    content: "";
-    position: absolute;
-    color: blue;
-    border-bottom: thick solid blue;
-    width: 15vw;
-    bottom: 7vw;
+.title img {
+    width: 12%;
+    height: 16%;
+    /*transform: rotate(-45deg);*/
+    padding: 0 2vw 2vw 2vw;
+
 }
 
-.title span::before{
-    right: 50vw;
-}
-
-.title span::after{
-    left: 50vw;
-}
-*/
 .navbar {
     position: fixed;
     left: 0;
