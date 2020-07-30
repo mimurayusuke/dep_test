@@ -20,7 +20,7 @@
     <div class="title"><img src="{% static 'image/4240.jpg' %}"><span>筋トレ手帳</span><img src="{% static 'image/4240.jpg' %}"></div>
     {% block content %}
     {% endblock %}
-    {% if  '/edit/' in request.path%}
+    {% if  '/edit/' in request.path %}
         <div class="icon"><a href="{% url 'edit_menu' %}" class="icon_a"><p id="always_home">戻る</p><img src="{% static 'image/29640.jpg' %}"></a></div>
     {% elif '/result/' in request.path %}
         <div class="icon"><a href="{% url 'result_menu' %}" class="icon_a"><p id="always_home">戻る</p><img src="{% static 'image/29640.jpg' %}"></a></div>
@@ -35,10 +35,26 @@
     {% if request.user.is_authenticated %}
         <nav class="navbar">
             <ul class="flex-container">
-                <li class="item"><a href="{% url 'home' %}">ホーム</a></li>
-                <li class="item"><a href="{% url 'result_menu' %}">記録確認</a></li>
-                <li class="item"><a href="{% url 'edit_menu' %}">種目設定</a></li>
-                <li class="item"><a href="{% url 'account' %}">アカウント</a></li>
+                {% if 'home' in request.path %}
+                    <li class="item_selected"><a href=#>ホーム</a></li>
+                {% else %} 
+                    <li class="item"><a href="{% url 'home' %}">ホーム</a></li>
+                {% endif %}
+                {% if 'result_menu' in request.path %}
+                    <li class="item_selected"><a href=#>記録確認</a></li>
+                {% else %}
+                    <li class="item"><a href="{% url 'result_menu' %}">記録確認</a></li>
+                {% endif %}
+                {% if 'edit_menu' in request.path %}
+                    <li class="item_selected"><a href=#>種目設定</a></li>
+                {% else %}
+                    <li class="item"><a href="{% url 'edit_menu' %}">種目設定</a></li>
+                {% endif %}
+                {% if 'account' in request.path %}
+                    <li class="item_selected"><a href=# %}>アカウント</a></li>
+                {% else %}
+                    <li class="item"><a href="{% url 'account' %}">アカウント</a></li>
+                {% endif %}
             </ul>
         </nav>
     {% endif %}

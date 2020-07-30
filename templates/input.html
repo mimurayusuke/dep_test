@@ -5,15 +5,15 @@
         <div class="page_title">{{ latest_rec.weight_menu }}の重量記録</div>
     -->
     <div class="page_title">重量を記録</div>
-    <div class="selected_menu_title">種目</div>
-    <div class="selected_menu_title">{{ latest_rec.weight_menu }}</div>
+    <div class="selected_menu_title"><span class="input_span">種目</span></div>
+    <div class="selected_menu">{{ latest_rec.weight_menu }}</div>
     <form method="post" action="">
         {% csrf_token %}
-        <p>重量(Kg)</p>
+        <p><span class="input_span">重量(Kg)</span></p>
         <p>{{ form.weight_record }}</p>
-        <p>回数(Rep)</p>
+        <p><span class="input_span">回数(Rep)</span></p>
         <p>{{ form.rep }}</p>
-        <p id="volume_label">負荷量(Kg*Rep)</p>
+        <p><span class="input_span">ボリューム(Kg*Rep)</span></p>
         <p id="volume_var">0Kg</p>
         <!--
             <p>

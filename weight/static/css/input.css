@@ -1,48 +1,21 @@
-/* common.cssで.pate_titleにまとめた
-.selected_menu {
-    font-size: 6vw;
-    text-align: center;
-    color: white;
-    background-color:blue;
-    margin: 2vw 0vw;
-    grid-column: 1 / 5;
-}
-*/
-
-/* common.cssでform、pにまとめた
-form {
-    font-size: 6vw;
-    text-align: center;
-    grid-column: 1 / 5;
-}
-
-p {
-    margin: 2vw 0vw;
-}
-*/
-
-
 .selected_menu_title {
     font-size: 6vw;
     text-align: center;
     grid-column: 1 / 5;
 }
 
-/* common.cssで.input_areaにまとめた
-#id_weight_record {
-    width: 50vw;
-    height: 8vw;
-    font-size: 100%;
-    border: solid;
-    padding: 0;
+.selected_menu {
+    font-size: 6vw;
+    text-align: center;
+    grid-column: 1 / 5;
 }
 
-#id_weight_record:focus {
-    border: solid blue;
-    outline: none;
-    box-shadow: 0 0 10px 2px blue;
+.input_span {
+    display: inline-block;
+    width: 65%;
+    color: white;
+    background-color: blue;
 }
-*/
 
 .input_success_message {
     color: red;
@@ -52,6 +25,7 @@ p {
     grid-column: 1 / 5;
 }
 
+/*
 .latest_title {
     font-size: 5vw;
     text-align: center;
@@ -110,3 +84,4 @@ input[type="checkbox"]:checked + .next_weight_up_label {
     padding: 2vw;
     background-color: violet;
 }
+*/
