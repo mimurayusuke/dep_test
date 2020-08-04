@@ -15,6 +15,7 @@ class RecordForm(forms.Form):
         label='record',
         max_digits=5,
         decimal_places=2,
+        min_value=1,
         required=True,
         widget=forms.NumberInput(attrs={'class': 'input_area', 'id': 'weight_record_area'})
     )
