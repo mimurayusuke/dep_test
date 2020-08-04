@@ -1,9 +1,10 @@
 // for input.html
+/*
 if (document.getElementById("input_success_message") != null) {
     document.getElementById("record latest_title").innerHTML = '今回の記録'
     document.getElementById("record latest_record").style.backgroundColor = 'red'
 }
-
+*/
 var volume_var = document.getElementById('volume_var');
 var weight_record_area = document.getElementById('weight_record_area');
 var rep_area = document.getElementById('rep_area');

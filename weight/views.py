@@ -60,6 +60,10 @@ def input_func(request, id):
             max_rec = Record.objects.filter(weight_menu__id= id).order_by('weight_record').last()
             messages.success(request, '記録完了')
             return redirect('input', id)
+        
+        else:
+            messages.error(request, '1Kg以上・1Rep以上を入力してください。')
+            return redirect('input', id)
 
     else:
         #メニューを保持するユーザ以外のアクセスを拒否する
