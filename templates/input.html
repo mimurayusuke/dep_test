@@ -5,6 +5,11 @@
         <div class="page_title">{{ latest_rec.weight_menu }}の重量記録</div>
     -->
     <div class="page_title">重量を記録</div>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="input_result_message" id="input_result_message">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
     <div class="selected_menu_title"><span class="input_span">種目</span></div>
     <div class="selected_menu">{{ latest_rec.weight_menu }}</div>
     <form method="post" action="">
@@ -33,11 +38,6 @@
     <!--
     <div class="record latest_record" id="record latest_record">{{latest_rec.weight_record}}Kg / {{latest_rec.created_at|date:"Y-m-d"}}</div>
     -->
-    {% if messages %}
-        {% for message in messages %}
-            <div class="input_success_message" id="input_success_message">{{ message }}</div>
-        {% endfor %}
-    {% endif %}
 
     <!--
     <div class="record max_title">MAX記録</div>

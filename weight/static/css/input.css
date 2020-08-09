@@ -17,10 +17,11 @@
     background-color: blue;
 }
 
-.input_success_message {
-    color: red;
+.input_result_message {
+    color:white;
+    background-color: red;
     font-size: 5vw;
     text-align: center;
-    margin-top: 2vw;
+    margin-bottom: 2vw;
     grid-column: 1 / 5;
 }

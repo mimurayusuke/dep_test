@@ -61,6 +61,7 @@ def input_func(request, id):
             messages.success(request, '記録完了')
             return redirect('input', id)
         
+        #formで定義したkg,Repともに1以上という条件を満たさない場合は、エラーメッセージを生成してinput.htmlへリダイレクトする。
         else:
             messages.error(request, '1Kg以上・1Rep以上を入力してください。')
             return redirect('input', id)
@@ -103,7 +104,7 @@ def input_func(request, id):
         #getの時は、空のフォームを作成してレンダリング
         form = RecordForm()
     #return render(request, 'input.html', {'id':id, 'max_created_at_date':max_created_at_date, 'latest_rec_list':latest_rec_list, 'latest_rec':latest_rec, 'max_rec':max_rec, 'form':form})
-    return render(request, 'input.html', {'id':id, 'latest_rec':latest_rec, 'max_created_at_date':max_created_at_date, 'volume': volume, 'form':form})
+    return render(request, 'input.html', {'id':id, 'latest_rec':latest_rec, 'form':form})
     
 @login_required
 def edit_menu_func(request):
@@ -245,10 +246,8 @@ def result_func(request, id, order_type):
     except Menu.DoesNotExist:
         raise Http404
     #メニューを保持するユーザ以外のアクセスを拒否する
-    print('userのid', request.user.id, 'menu保持者のid', confirm_menu.user.id)
-    
+    print('userのid', request.user.id, 'menu保持者のid', confirm_menu.user.id) 
     if request.user.id != confirm_menu.user.id:
-        print('false')
         return redirect('home')
     #外部キーの値を取得する時は定義した外部キーの項目名にアンダーバーを２つ続けて、取得したいデータの値を指定する。
     print(order_type)
@@ -257,5 +256,5 @@ def result_func(request, id, order_type):
     elif order_type == 'weight':
         results = Record.objects.filter(weight_menu__id = id).order_by('-weight_record')
     
-    print(results)
+    #print(results)
     return render(request, 'result.html', {'id':id, 'confirm_menu':confirm_menu, 'results':results, 'order_type':order_type})
