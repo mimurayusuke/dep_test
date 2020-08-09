@@ -46,7 +46,9 @@ def input_func(request, id):
 
             register_record.weight_record = form.cleaned_data['weight_record']
             register_record.rep = form.cleaned_data['rep']
+            register_record.sets = form.cleaned_data['sets']
             print(register_record.rep)
+            print(register_record.sets)
             checked = form.cleaned_data['next_weight_up']
             print(checked)
 
@@ -54,6 +56,7 @@ def input_func(request, id):
                 weight_menu = Menu(id = id),
                 weight_record = register_record.weight_record,
                 rep = register_record.rep,
+                sets = register_record.sets,
             )
 
             latest_rec = Record.objects.filter(weight_menu__id= id).latest('created_at')
@@ -63,7 +66,7 @@ def input_func(request, id):
         
         #formで定義したkg,Repともに1以上という条件を満たさない場合は、エラーメッセージを生成してinput.htmlへリダイレクトする。
         else:
-            messages.error(request, '1Kg以上・1Rep以上を入力してください。')
+            messages.error(request, '入力欄には1以上を入力してください。')
             return redirect('input', id)
 
     else:
@@ -95,7 +98,8 @@ def input_func(request, id):
         print(max_created_at_date)
         weight_sum = Record.objects.filter(weight_menu__id = id, created_at__startswith = max_created_at_date).aggregate(Sum('weight_record'))
         rep_sum = Record.objects.filter(weight_menu__id = id, created_at__startswith = max_created_at_date).aggregate(Sum('rep'))
-        print('重量合計', weight_sum, 'Rep合計', rep_sum)
+        set_sum = Record.objects.filter(weight_menu__id = id, created_at__startswith = max_created_at_date).aggregate(Sum('sets'))
+        print('重量合計', weight_sum, 'Rep合計', rep_sum, 'Set合計', set_sum)
         volume = weight_sum['weight_record__sum'] * rep_sum['rep__sum']
         print(volume)
 

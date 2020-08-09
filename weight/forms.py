@@ -29,6 +29,14 @@ class RecordForm(forms.Form):
 
     )
 
+    sets = forms.IntegerField(
+        label='sets',
+        max_value=100,
+        min_value=1,
+        required=True,
+        widget=forms.NumberInput(attrs={'class': 'input_area', 'id': 'sets_area'})
+    )
+
     next_weight_up = forms.BooleanField(
         initial= False,
         required= False,

@@ -8,16 +8,20 @@ if (document.getElementById("input_success_message") != null) {
 var volume_var = document.getElementById('volume_var');
 var weight_record_area = document.getElementById('weight_record_area');
 var rep_area = document.getElementById('rep_area');
+var sets_area = document.getElementById('sets_area')
 
 weight_record_area.addEventListener('change', volume_calc, false);
 rep_area.addEventListener('change', volume_calc, false);
+sets_area.addEventListener('change', volume_calc, false);
 
 function volume_calc() {
     console.log(weight_record_area.value);
     console.log(rep_area.value);
+    console.log(sets_area.value);
     var wra = weight_record_area.value;
     var re = rep_area.value;
-    var result = wra * re;
+    var se = sets_area.value;
+    var result = wra * re * se;
     console.log(result);
 
     volume_var.innerHTML = result + 'Kg'
