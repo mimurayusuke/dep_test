@@ -67,7 +67,7 @@ def input_func(request, id):
         
         #formで定義したkg,Repともに1以上という条件を満たさない場合は、エラーメッセージを生成してinput.htmlへリダイレクトする。
         else:
-            messages.error(request, '入力欄には1以上を入力してください。')
+            messages.error(request, '入力欄には1以上の値を入力してください。')
             return redirect('input', id)
 
     else:

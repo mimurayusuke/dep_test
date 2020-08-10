@@ -76,6 +76,23 @@ li {
     grid-column: 1 / 5;
 }
 
+.page_title span {
+    display: inline-block;
+    width: 100%;
+}
+
+.navigate_message {
+    font-size: 6vw;
+    text-align: center;
+    margin: 2vw 0vw;
+    grid-column: 1 / 5;
+}
+
+.navigate_message span {
+    display: inline-block;
+    width: 100%;
+}
+
 .page_title_success {
     font-size: 6vw;
     text-align: center;

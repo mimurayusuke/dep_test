@@ -1,42 +1,3 @@
-/* common.cssで.pate_titleにまとめた
-.login_menu {
-    font-size: 6vw;
-    text-align: center;
-    color: white;
-    background-color:blue;
-    margin: 2vw 0vw;
-    grid-column: 1 / 5;
-}
-*/
-
-
-/* common.cssでform、pにまとめた
-#login_form {
-    font-size: 6vw;
-    text-align: center;
-    grid-column: 1 / 5;
-}
-
-p {
-    margin: 2vw 0vw;
-}
-*/
-
-/* common.cssで.pate_titleにまとめた
-.input_area {
-    width: 50vw;
-    height: 8vw;
-    font-size: 100%;
-    padding: 0;
-    border: solid;
-}
-
-.input_area:focus {
-    border: solid blue;
-    outline: none;
-    box-shadow: 0 0 10px 2px blue;
-}
-*/
 .login_error {
     font-size: 4vw;
     text-align: center;
@@ -45,6 +6,9 @@ p {
     margin: 2vw 0vw;
     grid-column: 1 / 5;
 }
+
+
+
 #link_signup {
     font-size: 6vw;
     text-align: center;

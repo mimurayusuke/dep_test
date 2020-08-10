@@ -1,16 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="page_title">ログイン</div>
+    <div class="page_title"><span>ログイン</span></div>
     {% if error_message %}
         <div class="login_error">{{ error_message }}</div>
     {% endif %}
     <form id="login_form" method="post" action="">
         {% csrf_token %}
-        <p>ユーザ名</p>
+        <!--input_spanはinput.cssで定義-->
+        <p><span class="input_span">ユーザ名</span></p>
         <p>{{ form.username }}</p>
         <p>{{ form.errors }}</p>
-        <p>パスワード</p>
+        <p><span class="input_span">パスワード</span></p>
         <p>{{ form.password }}</p>
         <p>{{ form.password.errors }}</p>
         <input class="button" type="button" value="ログイン" onclick="submit();">

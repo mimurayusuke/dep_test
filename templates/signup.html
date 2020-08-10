@@ -1,16 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="page_title">新規登録</div>
+    <div class="page_title"><span>新規登録</span></div>
     <form id="signup_form" method="post" action="">
         {% csrf_token %}
-        <p>登録ユーザ名</p>
+        <!--input_spanはinput.cssで定義-->
+        <p><span class="input_span">登録ユーザ名</span></p>
         <p>{{ form.username }}</p>
         <p>{{ form.username.errors }}</p>
-        <p>パスワード</p>
+        <p><span class="input_span">パスワード</span></p>
         <p>{{ form.password1 }}</p>
         <p>{{ form.password1.errors }}</p>
-        <p>パスワード再入力</p>
+        <p><span class="input_span">パスワード再入力</span></p>
         <p>{{ form.password2 }}</p>
         <p>{{ form.password2.errors }}</p>
         <input class="button" type="button" value="登録" onclick="submit()">

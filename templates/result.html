@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="page_title">{{ confirm_menu.menu_name }}の記録一覧</div>
+    <div class="page_title"><span>{{ confirm_menu.menu_name }}の記録一覧</span></div>
     <div class="link_order">
         {% if order_type == 'day' %}
             <a href="{% url 'result' id=confirm_menu.id order_type='weight' %}" class="button">記録順表示</a>

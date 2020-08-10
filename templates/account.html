@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="page_title">アカウント情報</div>
+    <div class="page_title"><span>アカウント情報</span></div>
     <div class="user_info">ユーザ名：{{ request.user }}</div>
     <div class="login_button"><a href="{% url 'logout' %}">ログアウト</a></div>
 {% endblock %}

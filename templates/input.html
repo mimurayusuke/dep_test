@@ -4,7 +4,7 @@
     <!--
         <div class="page_title">{{ latest_rec.weight_menu }}の重量記録</div>
     -->
-    <div class="page_title">重量を記録</div>
+    <div class="page_title"><span>記録内容</span></div>
     {% if messages %}
         {% for message in messages %}
             <div class="input_result_message" id="input_result_message">{{ message }}</div>
@@ -30,7 +30,7 @@
             <label for="next_weight_up_id" class="next_weight_up_label">次回重量UP</labal>
         </p>
         -->
-        <input class="button" type="button" value="入力" onclick="submit();">
+        <input class="button" type="button" value="記録" onclick="submit();">
     </form>
 
 {% endblock %}

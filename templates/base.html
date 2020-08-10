@@ -36,9 +36,9 @@
         <nav class="navbar">
             <ul class="flex-container">
                 {% if 'home' in request.path %}
-                    <li class="item_selected"><a href=#>ホーム</a></li>
+                    <li class="item_selected"><a href=#>記録</a></li>
                 {% else %} 
-                    <li class="item"><a href="{% url 'home' %}">ホーム</a></li>
+                    <li class="item"><a href="{% url 'home' %}">記録</a></li>
                 {% endif %}
                 {% if 'result_menu' in request.path %}
                     <li class="item_selected"><a href=#>記録確認</a></li>

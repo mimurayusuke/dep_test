@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="page_title">種目を選択</div>
+    <div class="page_title"><span>記録</span></div>
+    <div class="navigate_message"><span>記録する種目を選択</span></div>
+    <!--
     {% load static %}
     <div class="icon"><img src="{% static 'image/29639.jpg' %}"></div>
+    -->
     {% for menu in menu_list %}
 
         <div class="menu"><a href="input/{{menu.id}}" data-value="{{menu.id}}">{{menu.menu_name}}</a></div>    
