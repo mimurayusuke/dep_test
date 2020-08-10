@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .models import Menu
+from django.utils import timezone
 
 class MenuForm(forms.Form):
     menu_name = forms.CharField(
@@ -26,7 +27,6 @@ class RecordForm(forms.Form):
         min_value=1,
         required=True,
         widget=forms.NumberInput(attrs={'class': 'input_area', 'id': 'rep_area'})
-
     )
 
     sets = forms.IntegerField(
@@ -37,11 +37,17 @@ class RecordForm(forms.Form):
         widget=forms.NumberInput(attrs={'class': 'input_area', 'id': 'sets_area'})
     )
 
+    regi_date = forms.DateField(
+        label='regi_date',
+        required=True,
+        initial=timezone.now,
+        widget=forms.DateInput(attrs={'class': 'input_area'})
+    )
+
     next_weight_up = forms.BooleanField(
         initial= False,
         required= False,
         widget= forms.CheckboxInput(attrs={'class': 'next_weight_up_class', 'id': 'next_weight_up_id'})
-
     )
 
 #class MultiSelectForm(forms.Form):

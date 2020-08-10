@@ -47,6 +47,7 @@ def input_func(request, id):
             register_record.weight_record = form.cleaned_data['weight_record']
             register_record.rep = form.cleaned_data['rep']
             register_record.sets = form.cleaned_data['sets']
+            register_record.registerd_at = form.cleaned_data['regi_date']
             print(register_record.rep)
             print(register_record.sets)
             checked = form.cleaned_data['next_weight_up']
@@ -57,10 +58,12 @@ def input_func(request, id):
                 weight_record = register_record.weight_record,
                 rep = register_record.rep,
                 sets = register_record.sets,
+                registerd_at = register_record.registerd_at,
             )
 
             #modified_atが最新のレコード抽出することで、新規登録の場合も更新登録の場合も同じレコードが返る。
             register_menu = Record.objects.filter(weight_menu__id = id).latest('modified_at')
+            print(register_menu)
             #messages.success(request, '記録完了')
             volume = register_record.weight_record * register_record.rep * register_record.sets
             return render(request, 'input_success.html', {'id':id, 'register_menu':register_menu, 'register_weight':register_record.weight_record, 'register_rep':register_record.rep, 'register_sets':register_record.sets, 'volume':volume})

@@ -18,8 +18,9 @@ class Record(models.Model):
     weight_record = models.DecimalField(max_digits=5, decimal_places=2, default=0)
     rep = models.IntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(100)])
     sets = models.IntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(100)])
+    registerd_at = models.DateField(auto_now=False, auto_now_add=False)
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return "PK:{0}, FK:{1}, weight:{2}, rep:{3}, set:{4}, created:{5}, modified:{6}".format(self.pk, self.weight_menu, self.weight_record, self.rep, self.sets, self.created_at, self.modified_at)
+        return "PK:{0}, FK:{1}, weight:{2}, rep:{3}, set:{4}, registerd:{5}, created:{6}, modified:{7}".format(self.pk, self.weight_menu, self.weight_record, self.rep, self.sets, self.registerd_at, self.created_at, self.modified_at)

@@ -15,6 +15,8 @@
     <div class="selected_menu">{{ latest_rec.weight_menu }}</div>
     <form method="post" action="">
         {% csrf_token %}
+        <p><span class="input_span">日付</span></p>
+        <p>{{ form.regi_date }}</p>
         <p><span class="input_span">重量(Kg)</span></p>
         <p>{{ form.weight_record }}</p>
         <p><span class="input_span">回数(Rep)</span></p>
