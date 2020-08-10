@@ -10,6 +10,7 @@
             <div class="input_result_message" id="input_result_message">{{ message }}</div>
         {% endfor %}
     {% endif %}
+
     <div class="selected_menu_title"><span class="input_span">種目</span></div>
     <div class="selected_menu">{{ latest_rec.weight_menu }}</div>
     <form method="post" action="">
@@ -20,9 +21,10 @@
         <p>{{ form.rep }}</p>
         <p><span class="input_span">セット(Set)</span></p>
         <p>{{ form.sets }}</p>
-        <p><span class="input_span">ボリューム(Kg*Rep*Set)</span></p>
-        <p id="volume_var">0Kg</p>
         <!--
+            <p><span class="input_span">ボリューム(Kg*Rep*Set)</span></p>
+            <p id="volume_var">0Kg</p>
+        
             <p>
             {{ form.next_weight_up }}
             <label for="next_weight_up_id" class="next_weight_up_label">次回重量UP</labal>
@@ -31,44 +33,4 @@
         <input class="button" type="button" value="入力" onclick="submit();">
     </form>
 
-    <!--
-    <div class="record latest_title" id="record latest_title">前回の記録</div>
-    <div class="latest_date">{{ max_created_at_date|date:"Y-m-d" }}</div>
-    <div class="latest_date">ボリューム:{{ volume }}Kg</div>
-    -->
-    
-    <!--
-    <div class="record latest_record" id="record latest_record">{{latest_rec.weight_record}}Kg / {{latest_rec.created_at|date:"Y-m-d"}}</div>
-    -->
-
-    <!--
-    <div class="record max_title">MAX記録</div>
-    <div class="record max_record">{{max_rec.weight_record}}Kg / {{max_rec.created_at|date:"Y-m-d"}}</div>
-    -->
-    <!--
-    <script type="text/javascript">
-        if (document.getElementById("input_success_message") != null) {
-            document.getElementById("record latest_title").innerHTML = '今回の記録'
-            document.getElementById("record latest_record").style.backgroundColor = 'red'
-        }
-
-        var volume_var = document.getElementById('volume_var');
-        var weight_record_area = document.getElementById('weight_record_area');
-        var rep_area = document.getElementById('rep_area');
-
-        weight_record_area.addEventListener('change', volume_calc, false);
-        rep_area.addEventListener('change', volume_calc, false);
-        
-        function volume_calc() {
-            console.log(weight_record_area.value);
-            console.log(rep_area.value);
-            var wra = weight_record_area.value;
-            var re = rep_area.value;
-            var result = wra * re;
-            console.log(result);
-
-            volume_var.innerHTML = result + 'Kg'
-        }
-    </script>
-    -->
 {% endblock %}

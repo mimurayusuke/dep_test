@@ -22,4 +22,4 @@ class Record(models.Model):
     modified_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return "PK:{0}, FK:{1}, weight:{2}, rep:{3}, set:{4}, created:{5}".format(self.pk, self.weight_menu, self.weight_record, self.rep, self.sets, self.created_at)
+        return "PK:{0}, FK:{1}, weight:{2}, rep:{3}, set:{4}, created:{5}, modified:{6}".format(self.pk, self.weight_menu, self.weight_record, self.rep, self.sets, self.created_at, self.modified_at)

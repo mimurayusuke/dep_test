@@ -59,10 +59,11 @@ def input_func(request, id):
                 sets = register_record.sets,
             )
 
-            latest_rec = Record.objects.filter(weight_menu__id= id).latest('created_at')
-            max_rec = Record.objects.filter(weight_menu__id= id).order_by('weight_record').last()
-            messages.success(request, '記録完了')
-            return redirect('input', id)
+            #modified_atが最新のレコード抽出することで、新規登録の場合も更新登録の場合も同じレコードが返る。
+            register_menu = Record.objects.filter(weight_menu__id = id).latest('modified_at')
+            #messages.success(request, '記録完了')
+            volume = register_record.weight_record * register_record.rep * register_record.sets
+            return render(request, 'input_success.html', {'id':id, 'register_menu':register_menu, 'register_weight':register_record.weight_record, 'register_rep':register_record.rep, 'register_sets':register_record.sets, 'volume':volume})
         
         #formで定義したkg,Repともに1以上という条件を満たさない場合は、エラーメッセージを生成してinput.htmlへリダイレクトする。
         else:
@@ -84,7 +85,6 @@ def input_func(request, id):
         
         #外部キーの値を取得する時は定義した外部キーの項目名にアンダーバーを２つ続けて、取得したいデータの値を指定する。
         latest_rec = Record.objects.filter(weight_menu__id= id).latest('created_at')
-        max_rec = Record.objects.filter(weight_menu__id= id).order_by('weight_record').last()
         test_latest_created_at = Record.objects.filter(weight_menu__id= id).values().latest('created_at')
         test_latest_created_at_2 = Record.objects.filter(weight_menu__id = id).aggregate(Max('created_at'))
         print('Queryset型で取得', latest_rec)
@@ -109,7 +109,7 @@ def input_func(request, id):
         form = RecordForm()
     #return render(request, 'input.html', {'id':id, 'max_created_at_date':max_created_at_date, 'latest_rec_list':latest_rec_list, 'latest_rec':latest_rec, 'max_rec':max_rec, 'form':form})
     return render(request, 'input.html', {'id':id, 'latest_rec':latest_rec, 'form':form})
-    
+
 @login_required
 def edit_menu_func(request):
     

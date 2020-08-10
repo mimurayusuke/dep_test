@@ -1,35 +1,8 @@
-/* common.cssで.pate_titleにまとめた
-.account_menu {
-    font-size: 6vw;
-    text-align: center;
-    color: white;
-    background-color:blue;
-    margin: 2vw 0vw;
-    grid-column: 1 / 5;
-}
-*/
-
 .user_info {
     font-size: 6vw;
     text-align: center;
     grid-column: 1 / 5;
 }
-
-/* common.cssで.pate_titleにまとめた
-.input_area {
-    width: 50vw;
-    height: 8vw;
-    font-size: 100%;
-    padding: 0;
-    border: solid;
-}
-
-.input_area:focus {
-    border: solid blue;
-    outline: none;
-    box-shadow: 0 0 10px 2px blue;
-}
-*/
 
 .login_button {
     font-size: 6vw;
