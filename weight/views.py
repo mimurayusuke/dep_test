@@ -8,6 +8,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+import datetime
 
 # Create your views here.
 
@@ -38,7 +39,7 @@ def home_func(request):
 
 @login_required
 def input_func(request, id):
-    
+    #request.POST['regi_date']に対するバリデーションを作成すること。
     if request.method == 'POST':
         form = RecordForm(request.POST or None)
         if form.is_valid():
@@ -47,18 +48,17 @@ def input_func(request, id):
             register_record.weight_record = form.cleaned_data['weight_record']
             register_record.rep = form.cleaned_data['rep']
             register_record.sets = form.cleaned_data['sets']
-            register_record.registerd_at = form.cleaned_data['regi_date']
             print(register_record.rep)
             print(register_record.sets)
-            checked = form.cleaned_data['next_weight_up']
-            print(checked)
-
+            
             Record.objects.create(
                 weight_menu = Menu(id = id),
                 weight_record = register_record.weight_record,
                 rep = register_record.rep,
                 sets = register_record.sets,
-                registerd_at = register_record.registerd_at,
+                #regi_dateはform.pyで定義せず、htmlに直打ちしているため、formのメソッドが適用できない。
+                #従って、request.POST['フォームのid（name属性の値）']でrequestから直接取得している（https://qiita.com/nab/items/e32cde1643a010dfacb9）。
+                registerd_at = request.POST['regi_date'],
             )
 
             #modified_atが最新のレコード抽出することで、新規登録の場合も更新登録の場合も同じレコードが返る。
@@ -110,8 +110,11 @@ def input_func(request, id):
 
         #getの時は、空のフォームを作成してレンダリング
         form = RecordForm()
-    #return render(request, 'input.html', {'id':id, 'max_created_at_date':max_created_at_date, 'latest_rec_list':latest_rec_list, 'latest_rec':latest_rec, 'max_rec':max_rec, 'form':form})
-    return render(request, 'input.html', {'id':id, 'latest_rec':latest_rec, 'form':form})
+        #regi_dateの初期値をvalue属性に指定するため、今日の日付を取得し、文字列に変換してテンプレートに渡す。https://qiita.com/7110/items/4ece0ce9be0ce910ee90
+        dtn = datetime.datetime.now()
+        today = dtn.strftime('%Y-%m-%d')
+        print(today)
+    return render(request, 'input.html', {'id':id, 'latest_rec':latest_rec, 'form':form, 'today':today})
 
 @login_required
 def edit_menu_func(request):

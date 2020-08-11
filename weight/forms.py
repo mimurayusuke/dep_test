@@ -37,18 +37,18 @@ class RecordForm(forms.Form):
         widget=forms.NumberInput(attrs={'class': 'input_area', 'id': 'sets_area'})
     )
 
-    regi_date = forms.DateField(
-        label='regi_date',
-        required=True,
-        initial=timezone.now,
-        widget=forms.DateInput(attrs={'class': 'input_area'})
-    )
+    #regi_date = forms.DateField(
+    #    label='regi_date',
+    #    required=True,
+    #    initial=timezone.now,
+    #    widget=forms.SelectDateWidget(attrs={'class': 'input_area', 'id': 'regi_date_area'})
+    #)
 
-    next_weight_up = forms.BooleanField(
-        initial= False,
-        required= False,
-        widget= forms.CheckboxInput(attrs={'class': 'next_weight_up_class', 'id': 'next_weight_up_id'})
-    )
+    #next_weight_up = forms.BooleanField(
+    #    initial= False,
+    #    required= False,
+    #    widget= forms.CheckboxInput(attrs={'class': 'next_weight_up_class', 'id': 'next_weight_up_id'})
+    #)
 
 #class MultiSelectForm(forms.Form):
 #    menu_name = forms.MultipleChoiceField(

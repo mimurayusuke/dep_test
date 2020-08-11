@@ -26,8 +26,8 @@
     grid-column: 1 / 5;
 }
 
-#id_regi_date_year, #id_regi_date_month, #id_regi_date_day {
-    width: 33%;
+#regi_date_area {
+    background-color: white;
 }
 
 /*for input_success.html*/

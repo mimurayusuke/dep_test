@@ -16,7 +16,7 @@
     <form method="post" action="">
         {% csrf_token %}
         <p><span class="input_span">日付</span></p>
-        <p>{{ form.regi_date }}</p>
+        <p><input type="date" class="input_area" id="regi_date_area" name="regi_date" value={{ today }} required></p>
         <p><span class="input_span">重量(Kg)</span></p>
         <p>{{ form.weight_record }}</p>
         <p><span class="input_span">回数(Rep)</span></p>
