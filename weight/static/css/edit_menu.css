@@ -1,13 +1,3 @@
-/* common.cssで.pate_titleにまとめた
-.register_title {
-    font-size: 6vw;
-    text-align: center;
-    color: white;
-    background-color:blue;
-    margin: 2vw 0vw;
-    grid-column: 1 / 5;
-}
-*/
 .register_error {
     font-size: 4vw;
     text-align: center;
@@ -16,34 +6,6 @@
     margin: 2vw 0vw;
     grid-column: 1 / 5;
 }
-
-/* common.cssでform、pにまとめた
-.register_form {
-    font-size: 6vw;
-    text-align: center;
-    grid-column: 1 / 5;
-}
-
-p {
-    margin: 2vw 0vw;
-}
-*/
-
-/* common.cssで.pate_titleにまとめた
-#id_menu_name {
-    width: 50vw;
-    height: 8vw;
-    font-size: 100%;
-    border: solid;
-    padding: 0;
-}
-
-#id_menu_name:focus {
-    border: solid blue;
-    outline: none;
-    box-shadow: 0 0 10px 2px blue;
-}
-*/
 
 .edit_title {
     font-size: 6vw;
@@ -62,6 +24,11 @@ p {
     border-radius: 3vw;
     margin: 2vw 0vw;
     grid-column: 2 / 4;
+}
+
+.edit_menu span {
+    display: inline-block;
+    width: 100%;
 }
 
 .edit_menu a {

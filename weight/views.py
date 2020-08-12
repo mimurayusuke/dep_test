@@ -61,8 +61,8 @@ def input_func(request, id):
                 registerd_at = request.POST['regi_date'],
             )
 
-            #modified_atが最新のレコード抽出することで、新規登録の場合も更新登録の場合も同じレコードが返る。
-            register_menu = Record.objects.filter(weight_menu__id = id).latest('modified_at')
+            #idで検索してユニークなメニューを取得するのでget
+            register_menu = Menu.objects.get(id = id)
             print(register_menu)
             #messages.success(request, '記録完了')
             volume = register_record.weight_record * register_record.rep * register_record.sets
@@ -87,7 +87,8 @@ def input_func(request, id):
             return redirect('home')
         
         #外部キーの値を取得する時は定義した外部キーの項目名にアンダーバーを２つ続けて、取得したいデータの値を指定する。
-        latest_rec = Record.objects.filter(weight_menu__id= id).latest('created_at')
+        #DBからレコードを取得する方法を確認した記述。一応消さずに残しておくが、恐らくコメント解除しても正常動作しない。
+        """ latest_rec = Record.objects.filter(weight_menu__id= id).latest('created_at')
         test_latest_created_at = Record.objects.filter(weight_menu__id= id).values().latest('created_at')
         test_latest_created_at_2 = Record.objects.filter(weight_menu__id = id).aggregate(Max('created_at'))
         print('Queryset型で取得', latest_rec)
@@ -104,17 +105,18 @@ def input_func(request, id):
         set_sum = Record.objects.filter(weight_menu__id = id, created_at__startswith = max_created_at_date).aggregate(Sum('sets'))
         print('重量合計', weight_sum, 'Rep合計', rep_sum, 'Set合計', set_sum)
         volume = weight_sum['weight_record__sum'] * rep_sum['rep__sum']
-        print(volume)
+        print(volume) """
 
-
-
+        #home画面で選択された種目を抽出
+        selected_register_menu = Menu.objects.get(id = id)
+        print(selected_register_menu)
         #getの時は、空のフォームを作成してレンダリング
         form = RecordForm()
         #regi_dateの初期値をvalue属性に指定するため、今日の日付を取得し、文字列に変換してテンプレートに渡す。https://qiita.com/7110/items/4ece0ce9be0ce910ee90
         dtn = datetime.datetime.now()
         today = dtn.strftime('%Y-%m-%d')
         print(today)
-    return render(request, 'input.html', {'id':id, 'latest_rec':latest_rec, 'form':form, 'today':today})
+    return render(request, 'input.html', {'id':id, 'selected_register_menu':selected_register_menu, 'form':form, 'today':today})
 
 @login_required
 def edit_menu_func(request):
@@ -138,15 +140,16 @@ def edit_menu_func(request):
                     menu_name = register_menu.menu_name,
                     user = register_menu.user
                 )
-                #新規登録したメニューの記録を0kgで作成する。
-                #この処理がない場合、home画面で新規登録したメニューをクリックした際に、レコードを探してこれない
-                #ためエラーとなる。
+                
+                #2020.8.12 開発当初はinput画面に前回の記録を表示していたことによる処理。表示方法を変えたので、削除した。
+                """ 新規登録したメニューの記録を0kgで作成する。
+                この処理がない場合、home画面で新規登録したメニューをクリックした際に、レコードを探してこれないためエラーとなる。
                 new_menu_id = Menu.objects.get(user__id = request.user.id, menu_name = register_menu.menu_name)
                 print(new_menu_id.id)
                 Record.objects.create(
                 weight_menu = Menu(id = new_menu_id.id),
                 weight_record = 0.00,
-                )
+                ) """
 
             return redirect('edit_menu')
 

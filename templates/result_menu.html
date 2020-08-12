@@ -6,9 +6,11 @@
     {% load static %}
     <div class="icon"><img src="{% static 'image/29639.jpg' %}"></div>
     -->
+
+    <!-- cssはhome.cssと共有 -->
     {% for menu in menu_list %}
 
-        <div class="menu"><a href="result/{{menu.id}}/day" data-value="{{menu.id}}">{{menu.menu_name}}</a></div>    
+        <div class="menu"><span><a href="result/{{menu.id}}/day" data-value="{{menu.id}}">{{menu.menu_name}}</a></span></div>    
         
     {% endfor %}
 {% endblock %}
