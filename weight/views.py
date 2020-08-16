@@ -38,6 +38,52 @@ def home_func(request):
         return render(request, 'home.html', {'menu_list':menu_list})
 
 @login_required
+def result_list_func(request):
+    #filterでmenuモデルのユーザidとログインユーザのidとを突合して、ログインユーザのレコードのみ抽出できるようにしている。
+    #weight_menuはMenuモデルを指す外部キーなので、'_'をつなげてMenuモデルのuserを参照し、そのuserはUserモデルを指す外部キーなので同じように'_'をつなげてUserモデルidを参照する。
+    results = Record.objects.filter(weight_menu__user__id = request.user.id).order_by('-registerd_at', 'weight_menu__id')[:100]
+    print(results)
+    return render(request, 'result_list.html', {'results':results})
+
+@login_required
+def result_edit_func(request, id):
+    try:
+        #メニューを保持するユーザ以外のアクセスがあった場合は後者の条件に一致せずレコードを取得できないためエラーになる。
+        edit_result = Record.objects.get(id = id, weight_menu__user__id = request.user.id)
+    except Menu.DoesNotExist:
+        raise Http404
+
+    if request.method == 'POST':
+        form = RecordForm(request.POST)
+        if form.is_valid():
+
+            edit_result.registerd_at = request.POST['regi_date']
+            edit_result.weight_record = form.cleaned_data['weight_record']
+            edit_result.rep = form.cleaned_data['rep']
+            edit_result.sets = form.cleaned_data['sets']
+            edit_result.save()
+            return redirect('result_list')
+        else:
+            messages.error(request, '入力欄には1以上の値を入力してください。')
+            return redirect('result_edit', id)
+
+    #RecordFormの項目に、最初に取得したmodelのデータをセットする。
+    form = RecordForm({'weight_record':edit_result.weight_record, 'rep':edit_result.rep, 'sets':edit_result.sets})
+
+    return render(request, 'result_edit.html', {'id':id, 'edit_result':edit_result, 'form':form})
+
+@require_POST
+@login_required
+def result_delete_func(request, id):
+    try:
+        delete_record = Record.objects.get(id = id, weight_menu__user__id = request.user.id)
+    except Menu.DoesNotExist:
+        raise Http404
+    delete_record.delete()
+
+    return redirect('result_list')
+
+@login_required
 def input_func(request, id):
     #request.POST['regi_date']に対するバリデーションを作成すること。
     if request.method == 'POST':
@@ -48,8 +94,6 @@ def input_func(request, id):
             register_record.weight_record = form.cleaned_data['weight_record']
             register_record.rep = form.cleaned_data['rep']
             register_record.sets = form.cleaned_data['sets']
-            print(register_record.rep)
-            print(register_record.sets)
             
             Record.objects.create(
                 weight_menu = Menu(id = id),
@@ -159,7 +203,7 @@ def edit_menu_func(request):
         return render(request, 'edit_menu.html', {'menu_list':menu_list, 'form':form})
 
 @login_required
-def edit_func(request, id):
+def menu_edit_func(request, id):
     try:
         edit_menu = Menu.objects.get(id = id)
     except Menu.DoesNotExist:

@@ -5,11 +5,43 @@
 }
 
 .result {
-    font-size: 5vw;
+    font-size: 6vw;
     text-align: center;
     margin-top: 2vw;
     grid-column: 1 / 5;
 }
+
+/*for result_list.html*/
+.result span {
+    display: inline-block;
+    width: 65%;
+    color: white;
+    background-color: blue;
+}
+
+#weight_menu_span {
+    display: inline-block;
+    width: 80%;
+    font-weight: bolder;
+    color: black;
+    background-color: white;
+    border-bottom: solid black;
+}
+
+#weight_record_span {
+    display: inline-block;
+    width: 80%;
+    color: blue;
+    background-color: white;
+}
+
+/*for result_edit.html*/
+.result_edit_button_area {
+    font-size: 6vw;
+    text-align: center;
+    grid-column: 1 / 5;
+}
+
 
 .link_order {
     font-size: 6vw;

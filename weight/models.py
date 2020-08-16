@@ -23,4 +23,5 @@ class Record(models.Model):
     modified_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return "PK:{0}, FK:{1}, weight:{2}, rep:{3}, set:{4}, registerd:{5}, created:{6}, modified:{7}".format(self.pk, self.weight_menu, self.weight_record, self.rep, self.sets, self.registerd_at, self.created_at, self.modified_at)
+        #self.weight_menu.userはselfに警告表示が出るが、正常にユーザ名が表示される。
+        return "PK:{0}, menu:{1}, weight:{2}, rep:{3}, set:{4}, registerd:{5}, created:{6}, modified:{7}, user:{8}".format(self.pk, self.weight_menu, self.weight_record, self.rep, self.sets, self.registerd_at, self.created_at, self.modified_at, self.weight_menu.user)

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="page_title"><span>記録の編集</span></div>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="input_result_message" id="input_result_message">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <div class="selected_menu_title"><span class="input_span">種目</span></div>
+    <div class="selected_menu">{{ edit_result.weight_menu }}</div>
+    <form id="result_edit_form" method="post" action="/result_edit/{{ id }}">
+        {% csrf_token %}
+        <p><span class="input_span">日付</span></p>
+        <p><input type="date" class="input_area" id="regi_date_area" name="regi_date" value={{ edit_result.registerd_at|date:"Y-m-d" }} required></p>
+        <p><span class="input_span">重量(Kg)</span></p>
+        <p>{{ form.weight_record }}</p>
+        <p><span class="input_span">回数(Rep)</span></p>
+        <p>{{ form.rep }}</p>
+        <p><span class="input_span">セット(Set)</span></p>
+        <p>{{ form.sets }}</p>
+    </form>
+    <div class="result_edit_button_area">
+        <input class="button" type="button" value="更新" form="result_edit_form" onclick="submit();">
+
+        <p>or</p>
+
+        <input class="button" type="button" value="削除" form="result_edit_form" onclick="change_action();">
+    </div>
+    <script type="text/javascript">
+        function change_action(){
+            var result = confirm('本当に削除しますか？');
+            //alertに対してnoの場合の分岐を追加すること。
+            if (result) {
+                document.getElementById('result_edit_form').action="/result_delete/{{ id }}"
+                document.getElementById('result_edit_form').submit();
+            }
+
+        }
+    </script>
+
+{% endblock %}
