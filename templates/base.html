@@ -40,10 +40,10 @@
                 {% else %} 
                     <li class="item"><a href="{% url 'home' %}">記録</a></li>
                 {% endif %}
-                {% if 'result_menu' in request.path %}
+                {% if 'result_list' in request.path %}
                     <li class="item_selected"><a href=#>記録確認</a></li>
                 {% else %}
-                    <li class="item"><a href="{% url 'result_menu' %}">記録確認</a></li>
+                    <li class="item"><a href="{% url 'result_list' %}">記録確認</a></li>
                 {% endif %}
                 {% if 'edit_menu' in request.path %}
                     <li class="item_selected"><a href=#>種目設定</a></li>
