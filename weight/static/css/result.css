@@ -14,14 +14,14 @@
 /*for result_list.html*/
 .result span {
     display: inline-block;
-    width: 65%;
+    width: 80%;
     color: white;
     background-color: blue;
 }
 
 #weight_menu_span {
     display: inline-block;
-    width: 80%;
+    width: 75%;
     font-weight: bolder;
     color: black;
     background-color: white;

@@ -42,7 +42,6 @@ def result_list_func(request):
     #filterでmenuモデルのユーザidとログインユーザのidとを突合して、ログインユーザのレコードのみ抽出できるようにしている。
     #weight_menuはMenuモデルを指す外部キーなので、'_'をつなげてMenuモデルのuserを参照し、そのuserはUserモデルを指す外部キーなので同じように'_'をつなげてUserモデルidを参照する。
     results = Record.objects.filter(weight_menu__user__id = request.user.id).order_by('-registerd_at', 'weight_menu__id')[:100]
-    print(results)
     return render(request, 'result_list.html', {'results':results})
 
 @login_required

@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/login.css'%}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/account.css'%}">
     <script type="text/javascript" src="{% static 'js/function.js' %}" defer></script>
+    <script src="https://kit.fontawesome.com/ae66cf63aa.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="container">
@@ -36,24 +37,24 @@
         <nav class="navbar">
             <ul class="flex-container">
                 {% if 'home' in request.path %}
-                    <li class="item_selected"><a href=#>記録</a></li>
+                    <li class="item_selected"><a href=#><i class="fas fa-edit"></i></a></li>
                 {% else %} 
-                    <li class="item"><a href="{% url 'home' %}">記録</a></li>
+                    <li class="item"><a href="{% url 'home' %}"><i class="fas fa-edit"></i></i></a></li>
                 {% endif %}
                 {% if 'result_list' in request.path %}
-                    <li class="item_selected"><a href=#>記録確認</a></li>
+                    <li class="item_selected"><a href=#><i class="far fa-chart-bar"></i></a></li>
                 {% else %}
-                    <li class="item"><a href="{% url 'result_list' %}">記録確認</a></li>
+                    <li class="item"><a href="{% url 'result_list' %}"><i class="far fa-chart-bar"></i></a></li>
                 {% endif %}
                 {% if 'edit_menu' in request.path %}
-                    <li class="item_selected"><a href=#>種目設定</a></li>
+                    <li class="item_selected"><a href=#><i class="fas fa-dumbbell"></i></a></li>
                 {% else %}
-                    <li class="item"><a href="{% url 'edit_menu' %}">種目設定</a></li>
+                    <li class="item"><a href="{% url 'edit_menu' %}"><i class="fas fa-dumbbell"></i></a></li>
                 {% endif %}
                 {% if 'account' in request.path %}
-                    <li class="item_selected"><a href=# %}>アカウント</a></li>
+                    <li class="item_selected"><a href=# %}><i class="fas fa-user"></i></a></li>
                 {% else %}
-                    <li class="item"><a href="{% url 'account' %}">アカウント</a></li>
+                    <li class="item"><a href="{% url 'account' %}"><i class="fas fa-user"></i></a></li>
                 {% endif %}
             </ul>
         </nav>

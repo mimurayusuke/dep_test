@@ -10,9 +10,14 @@
     grid-column: 1 / 5;
 }
 
+.selected_menu span {
+    display: inline-block;
+    width: 80%;
+}
+
 .input_span {
     display: inline-block;
-    width: 65%;
+    width: 70%;
     color: white;
     background-color: blue;
 }

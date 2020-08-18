@@ -46,7 +46,7 @@ ul {
 
 li {
     list-style: none;
-    font-size: 4.5vw;
+    font-size: 6vw;
     width: 100%;
     padding: 3.5% 0;
 }
@@ -59,7 +59,7 @@ li {
 
 .item_selected {
     list-style: none;
-    font-size: 4.5vw;
+    font-size: 6vw;
     width: 100%;
     padding: 3.5% 0;
     background-color: blue;
