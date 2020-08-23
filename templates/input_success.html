@@ -9,9 +9,8 @@
     <div class="selected_menu_title"><span class="input_span">ボリューム(Kg*Rep*Set)</span></div>
     <div class="selected_menu"><p>{{ volume }}Kg</p></div>
     <div class="input_continue_area">
-        <a href="{% url 'input' id=id %}">記録を続ける</a>
-    </div>
-    <div class="redirect_home_area">
-        <a href="{% url 'home' %}">種目を選択</a>
+        <button class="button" type="button" onclick="location.href='{% url 'input' id=id %}'">記録を続ける</button>
+        <p>or</p>
+        <button class="button" type="button" onclick="location.href='{% url 'home' %}'">種目を選択</button>
     </div>
 {% endblock %}

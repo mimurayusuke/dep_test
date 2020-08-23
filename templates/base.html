@@ -21,32 +21,32 @@
     <div class="title"><a href={% url 'home' %}><img src="{% static 'image/4240.jpg' %}"><span>筋トレ手帳</span><img src="{% static 'image/4240.jpg' %}"></a></div>
     {% block content %}
     {% endblock %}
-    {% if  '/edit/' in request.path %}
-        <div class="icon"><a href="{% url 'edit_menu' %}" class="icon_a"><p id="always_home">戻る</p><img src="{% static 'image/29640.jpg' %}"></a></div>
-    {% elif '/result/' in request.path %}
-        <div class="icon"><a href="{% url 'result_menu' %}" class="icon_a"><p id="always_home">戻る</p><img src="{% static 'image/29640.jpg' %}"></a></div>
-    {% else %}
-        <!--フッターメニューバーを作成したため、homeへのリンクを解除した。
-        <div class="icon"><a href="{% url 'home' %}" class="icon_a"><img src="{% static 'image/29640.jpg' %}"></a></div>
-        -->
-        <div class="icon"><img src="{% static 'image/29640.jpg' %}"></div>
-    {% endif %}
+
+    <div class="icon"><img src="{% static 'image/29640.jpg' %}"></div>
     <!--メニューバーと同じ高さの空白を埋め込むことで、コンテンツがメニューバーに隠れて見えない状態を回避する。-->
     <div class="blank"></div>
+    
     {% if request.user.is_authenticated %}
         <nav class="navbar">
             <ul class="flex-container">
-                {% if 'home' in request.path %}
-                    <li class="item_selected"><a href=#><i class="fas fa-edit"></i></a></li>
-                {% else %} 
-                    <li class="item"><a href="{% url 'home' %}"><i class="fas fa-edit"></i></i></a></li>
-                {% endif %}
-                {% if 'result_list' in request.path %}
+                {% if 'result_list' in request.path or 'result_edit' in request.path %}
                     <li class="item_selected"><a href=#><i class="far fa-chart-bar"></i></a></li>
                 {% else %}
                     <li class="item"><a href="{% url 'result_list' %}"><i class="far fa-chart-bar"></i></a></li>
                 {% endif %}
-                {% if 'edit_menu' in request.path %}
+                {% if 'home' in request.path or 'input' in request.path %}
+                    <li class="item_selected"><a href=#><i class="fas fa-edit"></i></a></li>
+                {% else %} 
+                    <li class="item"><a href="{% url 'home' %}"><i class="fas fa-edit"></i></i></a></li>
+                {% endif %}
+                {% if 'settings' in request.path %}
+                    <li class="item_selected"><a href=#><i class="fas fa-cog"></i></i></a></li>
+                {% else %}
+                    <li class="item"><a href={% url 'settings' %}><i class="fas fa-cog"></i></a></li>
+                {% endif %}
+
+                <!--del 2020.08.23-->
+                {% comment %} {% if 'edit_menu' in request.path %}
                     <li class="item_selected"><a href=#><i class="fas fa-dumbbell"></i></a></li>
                 {% else %}
                     <li class="item"><a href="{% url 'edit_menu' %}"><i class="fas fa-dumbbell"></i></a></li>
@@ -55,7 +55,7 @@
                     <li class="item_selected"><a href=# %}><i class="fas fa-user"></i></a></li>
                 {% else %}
                     <li class="item"><a href="{% url 'account' %}"><i class="fas fa-user"></i></a></li>
-                {% endif %}
+                {% endif %} {% endcomment %}
             </ul>
         </nav>
     {% endif %}

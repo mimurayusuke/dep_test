@@ -314,3 +314,8 @@ def result_func(request, id, order_type):
     
     #print(results)
     return render(request, 'result.html', {'id':id, 'confirm_menu':confirm_menu, 'results':results, 'order_type':order_type})
+
+@login_required
+def settings_func(request):
+    return render(request, 'settings.html')
+    

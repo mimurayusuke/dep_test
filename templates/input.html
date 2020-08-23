@@ -23,16 +23,8 @@
         <p>{{ form.rep }}</p>
         <p><span class="input_span">セット(Set)</span></p>
         <p>{{ form.sets }}</p>
-        <!--
-            <p><span class="input_span">ボリューム(Kg*Rep*Set)</span></p>
-            <p id="volume_var">0Kg</p>
-        
-            <p>
-            {{ form.next_weight_up }}
-            <label for="next_weight_up_id" class="next_weight_up_label">次回重量UP</labal>
-        </p>
-        -->
         <input class="button" type="button" value="記録" onclick="submit();">
+        <p>or</p>
+        <input class="button" type="button" value="戻る" onclick="history.back();">    
     </form>
-
 {% endblock %}

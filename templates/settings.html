@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="page_title"><span>設定</span></div>
+    <div><span><a href={% url 'account' %}>アカウント管理</a></span></div>
+    <div><span><a href={% url 'edit_menu' %}>種目登録</a></span></div>
+    <div><span><a href={% url 'edit_menu' %}>種目編集</a></span></div>
+{% endblock %}

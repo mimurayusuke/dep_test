@@ -6,25 +6,3 @@
     margin: 2vw 0vw;
     grid-column: 1 / 5;
 }
-
-
-
-#link_signup {
-    font-size: 6vw;
-    text-align: center;
-    grid-column: 1 / 5;
-}
-
-#link_signup a{
-    width: 25vw;
-    height: 8vw;
-    font-size: 4vw;
-    color: black;
-    background-color: skyblue;
-    border: solid black;
-    border-radius: 3vw;
-    padding-top: 2vw;
-    margin: 2vw 0vw;
-    display: inline-block;
-    text-decoration: none;
-}
