@@ -30,19 +30,19 @@
         <nav class="navbar">
             <ul class="flex-container">
                 {% if 'result_list' in request.path or 'result_edit' in request.path %}
-                    <li class="item_selected"><a href=#><i class="far fa-chart-bar"></i></a></li>
+                    <li class="item_selected"><a href=#><i class="far fa-chart-bar nav_icon"></i></a></li>
                 {% else %}
-                    <li class="item"><a href="{% url 'result_list' %}"><i class="far fa-chart-bar"></i></a></li>
+                    <li class="item"><a href="{% url 'result_list' %}"><i class="far fa-chart-bar nav_icon"></i></a></li>
                 {% endif %}
                 {% if 'home' in request.path or 'input' in request.path %}
-                    <li class="item_selected"><a href=#><i class="fas fa-edit"></i></a></li>
+                    <li class="item_selected"><a href=#><i class="fas fa-edit nav_icon"></i></a></li>
                 {% else %} 
-                    <li class="item"><a href="{% url 'home' %}"><i class="fas fa-edit"></i></i></a></li>
+                    <li class="item"><a href="{% url 'home' %}"><i class="fas fa-edit nav_icon"></i></i></a></li>
                 {% endif %}
                 {% if 'settings' in request.path %}
-                    <li class="item_selected"><a href=#><i class="fas fa-cog"></i></i></a></li>
+                    <li class="item_selected"><a href=#><i class="fas fa-cog nav_icon"></i></i></a></li>
                 {% else %}
-                    <li class="item"><a href={% url 'settings' %}><i class="fas fa-cog"></i></a></li>
+                    <li class="item"><a href={% url 'settings' %}><i class="fas fa-cog nav_icon"></i></a></li>
                 {% endif %}
 
                 <!--del 2020.08.23-->

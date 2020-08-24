@@ -4,22 +4,25 @@
     grid-column: 1 / 5;
 }
 
-.login_button {
-    font-size: 6vw;
+
+/* for settings.html */
+.setting_menu {
+    font-size: 6.5vw;
     text-align: center;
     grid-column: 1 / 5;
+    margin: 1vh 0;
 }
 
-.login_button a{
-    width: 25vw;
-    height: 8vw;
-    font-size: 4vw;
-    color: black;
-    background-color: skyblue;
-    border: solid black;
-    border-radius: 3vw;
-    padding-top: 2vw;
-    margin: 2vw 0vw;
+.setting_menu span {
     display: inline-block;
+    width: 70%;
+}
+
+.setting_menu a {
     text-decoration: none;
+    color: blue;
+}
+
+#rotate_dumbbel {
+    transform: rotate(-30deg);
 }

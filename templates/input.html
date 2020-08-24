@@ -25,6 +25,6 @@
         <p>{{ form.sets }}</p>
         <input class="button" type="button" value="記録" onclick="submit();">
         <p>or</p>
-        <input class="button" type="button" value="戻る" onclick="history.back();">    
+        <input class="button" type="button" value="戻る" onclick="location.href='{% url 'home' %}'">    
     </form>
 {% endblock %}

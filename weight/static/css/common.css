@@ -47,21 +47,22 @@ ul {
 li {
     list-style: none;
     font-size: 6vw;
+    height: 100%;
     width: 100%;
-    padding: 3.5% 0;
 }
 
 .item a {
     color: black; 
     text-decoration: none;
     display: block;
+    height: 100%;
 }
 
 .item_selected {
     list-style: none;
     font-size: 6vw;
     width: 100%;
-    padding: 3.5% 0;
+    height: 100%;
     background-color: blue;
 }
 
@@ -69,7 +70,13 @@ li {
     color: white;
     text-decoration: none;
     display: block;
+    height: 100%;
 }
+
+.nav_icon {
+    padding-top: 10%;
+}
+
 
 .page_title {
     font-size: 6vw;
