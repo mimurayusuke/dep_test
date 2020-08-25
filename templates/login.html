@@ -16,6 +16,6 @@
         <p>{{ form.password.errors }}</p>
         <input class="button" type="button" value="ログイン" onclick="submit();">
         <p>or</p>
-        <input class="button" type="button" value="新規登録" onclick="location.href='signup'">
+        <input class="button" type="button" value="新規登録" onclick="location.href='{% url 'signup' %}'">
     </form>
 {% endblock %}

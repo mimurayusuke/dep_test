@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <!--css files are input.css & common.css-->
     <div class="page_title"><span>記録の編集</span></div>
     {% if messages %}
         {% for message in messages %}
@@ -21,7 +22,7 @@
         <p><span class="input_span">セット(Set)</span></p>
         <p>{{ form.sets }}</p>
     </form>
-    <div class="result_edit_button_area">
+    <div class="without_form_button_area">
         <input class="button" type="button" value="更新" form="result_edit_form" onclick="submit();">
 
         <p>or</p>
@@ -30,7 +31,7 @@
     
         <p>or</p>
 
-        <input class="button" type="button" value="戻る" onclick="history.back();">
+        <input class="button" type="button" value="戻る" onclick="location.href='{% url 'result_list' %}'">
 
     </div>
     <script type="text/javascript">

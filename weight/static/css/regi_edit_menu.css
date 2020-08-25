@@ -1,4 +1,5 @@
-.register_error {
+/* for regi_menu.html */
+.register_message {
     font-size: 4vw;
     text-align: center;
     color:white;
@@ -7,14 +8,7 @@
     grid-column: 1 / 5;
 }
 
-.edit_title {
-    font-size: 6vw;
-    text-align: center;
-    margin: 4vw 0 2vw 0;
-    color: white;
-    background-color:blue;
-    grid-column: 1 / 5;   
-}
+/* for edit_menu.html */
 
 .edit_menu {
     font-size: 5.5vw;
@@ -36,8 +30,12 @@
     text-decoration: none;
 }
 
-.edit_form {
-    padding: 0;
+/* for edit.html */
+.edit_error {
+    font-size: 4vw;
     text-align: center;
+    color:white;
+    background-color: red;
+    margin: 2vw 0vw;
     grid-column: 1 / 5;
 }

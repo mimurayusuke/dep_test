@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-    <!--タグの属性はinput.cssで定義-->
+    <!--css files are input.css & common.css-->
     <div class="page_title_success">記録完了</div>
     <div class="selected_menu_title"><span class="input_span">種目</span></div>
     <div class="selected_menu"><p>{{ register_menu }}</p></div>
@@ -8,7 +8,7 @@
     <div class="selected_menu"><p>{{ register_weight }}Kg / {{ register_rep }}Rep / {{ register_sets }}Set</p></div>
     <div class="selected_menu_title"><span class="input_span">ボリューム(Kg*Rep*Set)</span></div>
     <div class="selected_menu"><p>{{ volume }}Kg</p></div>
-    <div class="input_continue_area">
+    <div class="without_form_button_area">
         <button class="button" type="button" onclick="location.href='{% url 'input' id=id %}'">記録を続ける</button>
         <p>or</p>
         <button class="button" type="button" onclick="location.href='{% url 'home' %}'">種目を選択</button>

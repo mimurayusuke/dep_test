@@ -175,6 +175,12 @@ p {
     margin: 2vw 0vw;
 }
 
+.without_form_button_area {
+    font-size: 6vw;
+    text-align: center;
+    grid-column: 1 / 5;
+}
+
 .blank {
     height: 8vh;
     grid-column: 1 / 5;

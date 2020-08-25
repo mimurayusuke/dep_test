@@ -1,17 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
+    <!--css file is regi_edit_menu.css-->
     <div class="page_title"><span>編集・削除</span></div>
     {% if error_message %}
         <div class="edit_error">"{{ input_menu }}"{{ error_message }}</div>
     {% endif %}
-    <form class="edit_form" id="edit_form" method="post" action="/edit/{{ id }}">
+    <form id="edit_form" method="post" action="/edit/{{ id }}">
         {% csrf_token %}
         <p>{{ form.menu_name }}</p>
-        <input class="button" id="edit_b" type="submit" value="更新">
+        <input class="button" type="submit" value="更新">
         <p>or</p>
-        <input class="button" id="delete_b" type="submit" value="削除" onclick="change_action();">
+        <input class="button" type="submit" value="削除" onclick="change_action();">
         <p>or</p>
-        <input class="button" type="button" value="戻る" onclick="history.back();">
+        <input class="button" type="button" value="戻る" onclick="location.href='{% url 'edit_menu' %}'">
     </form>
     <!--mod 2020.08.23 ボタンの横並び表示を辞めて、戻るボタンを追加した。-->
     {% comment %} <div class="edit_button_area">

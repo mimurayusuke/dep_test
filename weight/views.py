@@ -23,15 +23,16 @@ def home_func(request):
     print(request.user.id)
     print(request.user.is_authenticated)
     print(request.COOKIES)
+    
     menu_list = Menu.objects.filter(user__id = request.user.id).order_by('id')
-    #home.htmlとresult_menu.htmlはタイトルが異なるだけで表示画面が同じなので、
+    #home.htmlとedit_menuはタイトルが異なるだけで表示画面が同じなので、
     #アクセスパスによってrenderする画面を切り替える。
     #ホーム(/home)へのアクセスがあった場合は、こちらで処理。
     if request.path == '/home':
         return render(request, 'home.html', {'menu_list':menu_list})
-    #記録確認へのアクセスがあった場合は、こちらで処理。
-    elif request.path =='/result_menu':
-        return render(request, 'result_menu.html', {'menu_list':menu_list})
+    #種目編集へのアクセスがあった場合は、こちらで処理。
+    elif request.path =='/edit_menu':
+        return render(request, 'edit_menu.html', {'menu_list':menu_list})
     #url直接アクセス(/)があった場合は、こちらで処理。'/home' or '/'とすると、'/'が条件にマッチしてしまうため
     #/result_menuへのアクセスも/へのアクセスとして処理されてしまう。
     elif request.path =='/':
@@ -162,7 +163,7 @@ def input_func(request, id):
     return render(request, 'input.html', {'id':id, 'selected_register_menu':selected_register_menu, 'form':form, 'today':today})
 
 @login_required
-def edit_menu_func(request):
+def regi_menu_func(request):
     
     if request.method == 'POST':
         form = MenuForm(request.POST or None)
@@ -176,30 +177,19 @@ def edit_menu_func(request):
             if  Menu.objects.filter(user__id = request.user.id, menu_name = register_menu.menu_name).exists():
                 error_message = "は既に登録されています。"
                 form = MenuForm()
-                menu_list = Menu.objects.filter(user__id = request.user.id).order_by('id')
-                return render(request, 'edit_menu.html', {'menu_list':menu_list, 'form':form, 'error_message':error_message, 'registered_menu':register_menu.menu_name})
+                return render(request, 'regi_menu.html', {'form':form, 'error_message':error_message, 'registered_menu':register_menu.menu_name})
             else:
                 Menu.objects.create(
                     menu_name = register_menu.menu_name,
                     user = register_menu.user
                 )
-                
-                #2020.8.12 開発当初はinput画面に前回の記録を表示していたことによる処理。表示方法を変えたので、削除した。
-                """ 新規登録したメニューの記録を0kgで作成する。
-                この処理がない場合、home画面で新規登録したメニューをクリックした際に、レコードを探してこれないためエラーとなる。
-                new_menu_id = Menu.objects.get(user__id = request.user.id, menu_name = register_menu.menu_name)
-                print(new_menu_id.id)
-                Record.objects.create(
-                weight_menu = Menu(id = new_menu_id.id),
-                weight_record = 0.00,
-                ) """
-
-            return redirect('edit_menu')
+                success_message = "を登録しました。"
+                form = MenuForm()
+                return render(request, 'regi_menu.html', {'form':form, 'success_message':success_message, 'registered_menu':register_menu.menu_name})
 
     else:
         form = MenuForm()
-        menu_list = Menu.objects.filter(user__id = request.user.id).order_by('id')
-        return render(request, 'edit_menu.html', {'menu_list':menu_list, 'form':form})
+        return render(request, 'regi_menu.html', {'form':form})
 
 @login_required
 def menu_edit_func(request, id):

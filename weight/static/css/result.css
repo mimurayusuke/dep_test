@@ -36,12 +36,6 @@
 }
 
 /*for result_edit.html*/
-.result_edit_button_area {
-    font-size: 6vw;
-    text-align: center;
-    grid-column: 1 / 5;
-}
-
 
 .link_order {
     font-size: 6vw;

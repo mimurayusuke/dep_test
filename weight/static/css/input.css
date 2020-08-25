@@ -1,3 +1,4 @@
+/* for input.html input_success.html */
 .selected_menu_title {
     font-size: 6vw;
     text-align: center;
@@ -34,43 +35,3 @@
 #regi_date_area {
     background-color: white;
 }
-
-/*for input_success.html*/
-.input_continue_area {
-    font-size: 6vw;
-    text-align: center;
-    grid-column: 1 / 5;
-}
-
-/* .input_continue_area a{
-    width: 25vw;
-    height: 8vw;
-    font-size: 4vw;
-    color: black;
-    background-color: skyblue;
-    border: solid black;
-    border-radius: 3vw;
-    padding-top: 2vw;
-    margin: 2vw 0vw;
-    display: inline-block;
-    text-decoration: none;
-}
-
-.redirect_home_area {
-    text-align: center;
-    grid-column: 3 / 5;
-}
-
-.redirect_home_area a{
-    width: 25vw;
-    height: 8vw;
-    font-size: 4vw;
-    color: black;
-    background-color: skyblue;
-    border: solid black;
-    border-radius: 3vw;
-    padding-top: 2vw;
-    margin: 2vw 0vw;
-    display: inline-block;
-    text-decoration: none;
-} */

@@ -1,20 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="page_title"><span>種目登録</span></div>
-    {% if error_message %}
-        <div class="register_error">"{{ registered_menu }}"{{ error_message }}</div>
-    {% endif %}
-    <form class="register_form" method="post" action="">
-        {% csrf_token %}
-        <p>{{ form.menu_name }}</p>
-        <input class="button" type="submit" value="登録">
-    </form>
-
+    <!--css file is regi_edit_menu.css-->
     <div class="page_title"><span>種目編集</span></div>
+    <div class="navigate_message"><span>編集する種目を選択</span></div>
+    
     {% for menu in menu_list %}
 
-        <div class="edit_menu"><span><a href="edit/{{menu.id}}" data-value="{{menu.id}}">{{menu.menu_name}}</a></span></div>    
+        <div class="edit_menu"><span><a href={% url 'edit' id=menu.id %}>{{menu.menu_name}}</a></span></div>    
         
     {% endfor %} 
 {% endblock %}

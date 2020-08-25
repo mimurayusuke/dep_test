@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!--css file is regi_edit_menu.css-->
+    <div class="page_title"><span>種目登録</span></div>
+    <div class="navigate_message"><span>登録する種目を入力</span></div>
+    {% if error_message %}
+        <div class="register_message"><span>"{{ registered_menu }}"{{ error_message }}</span></div>
+    {% elif success_message %}
+        <div class="register_message"><span>"{{ registered_menu }}"{{ success_message }}</span></div>
+    {% endif %}
+
+    <form class="register_form" method="post" action="">
+        {% csrf_token %}
+        <p>{{ form.menu_name }}</p>
+        <input class="button" type="submit" value="登録">
+    </form> 
+{% endblock %}
