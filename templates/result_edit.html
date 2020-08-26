@@ -10,7 +10,7 @@
     {% endif %}
 
     <div class="selected_menu_title"><span class="input_span">種目</span></div>
-    <div class="selected_menu"><span>{{ edit_result.weight_menu }}</span></div>
+    <div class="selected_menu"><span>{{ edit_result.weight_menu.menu_name }}</span></div>
     <form id="result_edit_form" method="post" action="/result_edit/{{ id }}">
         {% csrf_token %}
         <p><span class="input_span">日付</span></p>

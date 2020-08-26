@@ -2,19 +2,16 @@
 
 {% block content %}
     <div class="page_title"><span>記録の確認</span></div>
+    <div class="selected_menu_title"><span class="input_span">種目</span></div>
+    <div class="selected_menu"><span>{{ edit_result.menu_name }}</span></div>
         <!--regroupの文法については、公式ドキュメントを参照（https://docs.djangoproject.com/ja/3.1/ref/templates/builtins/#regroup)-->
         <!--regroupを使ってregisterd_atでグループ化する-->
         {% regroup results by registerd_at as results_list %}
-        <!--外側のループでregisterd_atを回し、内側のループでweight_menuと記録を回す-->
+        <!--外側のループでregisterd_atを回し、内側のループで記録を回す-->
         {% for result in results_list %}
             <div class="result"><span>{{ result.grouper|date:"Y-m-d" }}</span></div>
             {% for menu in result.list %}
-                <!--日付が変わった場合は、外側のループごとリセットされるので、前回と同じメニューであったとしてもifchangedが有効になる模様-->
-                {% ifchanged menu.weight_menu %}
-                    <div class="result"><a href={% url 'result_list_menu' id=menu.weight_menu.id %}><span id="weight_menu_span">{{ menu.weight_menu.menu_name }}<i class="fas fa-chevron-circle-right fa-fw" id="result_menu_icon"></i></a></span></div>
-                {% endifchanged %}
                 <div class="result"><a href={% url 'result_edit' id=menu.id %}><span id="weight_record_span">{{ menu.weight_record }}kg /{{ menu.rep }}Rep /{{ menu.sets }}Set</span></a></div>
             {% endfor %}
-
         {% endfor %}
 {% endblock %}

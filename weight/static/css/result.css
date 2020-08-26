@@ -12,6 +12,10 @@
 }
 
 /*for result_list.html*/
+.result a {
+    text-decoration: none;
+}
+
 .result span {
     display: inline-block;
     width: 80%;
@@ -26,6 +30,10 @@
     color: black;
     background-color: white;
     border-bottom: solid black;
+}
+
+#result_menu_icon {
+    color: red;
 }
 
 #weight_record_span {

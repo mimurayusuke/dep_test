@@ -12,7 +12,7 @@
     {% endif %}
 
     <div class="selected_menu_title"><span class="input_span">種目</span></div>
-    <div class="selected_menu"><span>{{ selected_register_menu }}</span></div>
+    <div class="selected_menu"><span>{{ selected_register_menu.menu_name }}</span></div>
     <form method="post" action="">
         {% csrf_token %}
         <p><span class="input_span">日付</span></p>

@@ -46,6 +46,20 @@ def result_list_func(request):
     return render(request, 'result_list.html', {'results':results})
 
 @login_required
+def result_list_menu_func(request, id):
+    try:
+        #メニューを保持するユーザ以外のアクセスがあった場合は後者の条件に一致せずレコードを取得できないためエラーになる。
+        edit_result = Menu.objects.get(id = id, user__id = request.user.id)
+        print(edit_result)
+    except Menu.DoesNotExist:
+        raise Http404
+    #filterでmenuモデルのユーザidとログインユーザのidとを突合して、ログインユーザのレコードのみ抽出できるようにしている。
+    #weight_menuはMenuモデルを指す外部キーなので、'_'をつなげてMenuモデルのuserを参照し、そのuserはUserモデルを指す外部キーなので同じように'_'をつなげてUserモデルidを参照する。
+    #weight_menuのidがリクエストされたidと同じレコードを抽出する。
+    results = Record.objects.filter(weight_menu__user__id = request.user.id, weight_menu__id = id).order_by('-registerd_at')[:100]
+    return render(request, 'result_list_menu.html', {'results':results, 'edit_result':edit_result})
+
+@login_required
 def result_edit_func(request, id):
     try:
         #メニューを保持するユーザ以外のアクセスがあった場合は後者の条件に一致せずレコードを取得できないためエラーになる。

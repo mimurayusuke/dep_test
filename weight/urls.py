@@ -9,6 +9,7 @@ urlpatterns = [
     path('regi_menu', views.regi_menu_func, name='regi_menu'),
     path('result_menu', views.home_func, name="result_menu"),
     path('result_list', views.result_list_func, name='result_list'),
+    path('result_list_menu/<int:id>', views.result_list_menu_func, name='result_list_menu'),
     path('result_edit/<int:id>', views.result_edit_func, name='result_edit'),
     path('result_delete/<int:id>', views.result_delete_func, name='result_delete'),
     path('result/<int:id>/<str:order_type>/', views.result_func, name="result"),

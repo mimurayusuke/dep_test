@@ -8,10 +8,9 @@ class Menu(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        #下記のように記載すると、外部キーで参照されたときに
-        #定義した内容で表示されてしまうので、コメントアウト。
-        #return "PK:{0}, name:{1}".format(self.pk, self.menu_name)
-        return self.menu_name
+        #下記のように記載すると、外部キーで参照されたときにそのままweight_menuで指定すると定義した内容で表示されてしまう。
+        #PKを表示したいときはweight_menu.pkと記載し、menu_nameを表示したいときにはweight_menu.menu_nameと記載する。
+        return "PK:{0}, name:{1}".format(self.pk, self.menu_name)
 
 class Record(models.Model):
     weight_menu = models.ForeignKey(Menu, on_delete=models.CASCADE)
