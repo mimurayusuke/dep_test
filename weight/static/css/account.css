@@ -4,6 +4,9 @@
     grid-column: 1 / 5;
 }
 
+#profile {
+    font-size: 3vw;
+}
 
 /* for settings.html */
 .setting_menu {
