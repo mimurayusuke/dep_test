@@ -27,7 +27,12 @@
     {% if request.user.is_authenticated %}
         <nav class="navbar">
             <ul class="flex-container">
+                <!--mod 2021.01.17-->
+                {% comment %}
                 {% if 'result_list' in request.path or 'result_edit' in request.path %}
+                result_list_menu.htmlの画面ではリンクを有効にしたかったのと、rsult_edit画面でリンクを無効にする意味がないので変更。
+                {% endcomment %}
+                {% if request.path == '/result_list' %}
                     <li class="item_selected"><a href=#><i class="far fa-chart-bar nav_icon"></i></a></li>
                 {% else %}
                     <li class="item"><a href="{% url 'result_list' %}"><i class="far fa-chart-bar nav_icon"></i></a></li>
