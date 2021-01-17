@@ -4,6 +4,7 @@
     <div class="page_title"><span>アカウント情報</span></div>
     <div class="user_info">
         <span>ユーザ名：{{ request.user }}</span>
+        <button class="button" type="button" onclick="location.href='#'">テスト編集</button>
         <button class="button" type="button" onclick="location.href='{% url 'logout' %}'">ログアウト</button>
     </div>
     
