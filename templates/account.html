@@ -4,7 +4,8 @@
     <div class="page_title"><span>アカウント情報</span></div>
     <div class="user_info">
         <span>ユーザ名：{{ request.user }}</span>
-        <button class="button" id="profile" type="button" onclick="location.href='#'">プロフィール編集</button>
+        <!-- 2021.1.17　プロフィール編集ボタンはとりあえずテストで書いているので、修正すること。 -->
+        <button class="button" id="test_button" type="button" onclick="location.href='#'">プロフィール編集</button>
         <p>or</p>
         <button class="button" type="button" onclick="location.href='{% url 'logout' %}'">ログアウト</button>
     </div>

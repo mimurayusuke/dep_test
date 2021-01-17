@@ -4,8 +4,17 @@
     grid-column: 1 / 5;
 }
 
-#profile {
-    font-size: 3vw;
+/*2021.1.17とりあえずテストで書いているので、どこかに一元化すること。*/
+#test_button {
+    width: 50vw;
+    height: 10vw;
+    font-size: 4vw;
+    color: black;
+    background-color: skyblue;
+    border: solid black;
+    border-radius: 3vw;
+    padding: 0;
+    margin: 2vw 0vw;
 }
 
 /* for settings.html */
