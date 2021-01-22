@@ -1,0 +1,21 @@
+{
+    "short_name": "筋トレ手帳",
+  
+  
+    "name": "筋トレ手帳",
+  
+  
+    "start_url": "https://yskexe.com/home",
+  
+  
+    "display": "standalone",
+
+    "icons": [
+        {
+          "src": "../image/icon_dumbbell.png",
+          "type": "image/pnd",
+          "sizes": "192x192"
+        }
+      ],
+      "background_color": "#ffffff"
+}
