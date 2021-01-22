@@ -13,7 +13,7 @@
     "icons": [
         {
           "src": "../image/icon_dumbbell.png",
-          "type": "image/pnd",
+          "type": "image/png",
           "sizes": "192x192"
         }
       ],
