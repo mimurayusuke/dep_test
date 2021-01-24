@@ -1,13 +1,13 @@
 .container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(8, 1fr);
 }
 
 .title {
     font-size: 10vw;
     text-align: center;
     background: white;
-    grid-column: 1 / 5;
+    grid-column: 1 / 9;
     justify-content: center;
 }
 
@@ -84,7 +84,7 @@ li {
     color: white;
     background-color:blue;
     margin: 2vw 0vw;
-    grid-column: 1 / 5;
+    grid-column: 1 / 9;
 }
 
 .page_title span {
@@ -96,7 +96,7 @@ li {
     font-size: 6vw;
     text-align: center;
     margin: 2vw 0vw;
-    grid-column: 1 / 5;
+    grid-column: 1 / 9;
 }
 
 .navigate_message span {
@@ -110,12 +110,12 @@ li {
     color: white;
     background-color:red;
     margin: 2vw 0vw;
-    grid-column: 1 / 5;
+    grid-column: 1 / 9;
 }
 
 .icon {
     text-align: center;
-    grid-column: 1 / 5;
+    grid-column: 1 / 9;
 }
 
 .icon a {
@@ -141,7 +141,7 @@ li {
 form {
     font-size: 6vw;
     text-align: center;
-    grid-column: 1 / 5;
+    grid-column: 1 / 9;
 }
 
 p {
@@ -178,10 +178,10 @@ p {
 .without_form_button_area {
     font-size: 6vw;
     text-align: center;
-    grid-column: 1 / 5;
+    grid-column: 1 / 9;
 }
 
 .blank {
     height: 8vh;
-    grid-column: 1 / 5;
+    grid-column: 1 / 9;
 }

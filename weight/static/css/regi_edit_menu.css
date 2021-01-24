@@ -5,7 +5,7 @@
     color:white;
     background-color: red;
     margin: 2vw 0vw;
-    grid-column: 1 / 5;
+    grid-column: 1 / 9;
 }
 
 /* for edit_menu.html */
@@ -17,7 +17,7 @@
     border: solid black;
     border-radius: 3vw;
     margin: 2vw 0vw;
-    grid-column: 2 / 4;
+    grid-column: 2 / 8;
 }
 
 .edit_menu span {
@@ -37,5 +37,5 @@
     color:white;
     background-color: red;
     margin: 2vw 0vw;
-    grid-column: 1 / 5;
+    grid-column: 1 / 9;
 }

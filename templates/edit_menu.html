@@ -6,8 +6,11 @@
     <div class="navigate_message"><span>編集する種目を選択</span></div>
     
     {% for menu in menu_list %}
-
-        <div class="edit_menu"><span><a href={% url 'edit' id=menu.id %}>{{menu.menu_name}}</a></span></div>    
+        <!-- del 2021.01.24
+        <div class="edit_menu"><span><a href={% url 'edit' id=menu.id %}>{{menu.menu_name}}</a></span></div>
+        -->
+        <!--css file is home.css-->
+        <div class="menu"><a href={% url 'edit' id=menu.id %}><span>{{ menu.menu_name }}<i class="fas fa-chevron-circle-right fa-fw" id="menu_icon"></i></a></span></div>    
         
     {% endfor %} 
 {% endblock %}

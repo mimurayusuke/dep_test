@@ -1,10 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="page_title"><span>記録</span></div>
+    <div class="page_title"><span>種目一覧</span></div>
+    <div class="regi_menu_button"><button class="home_buttons" type="button" onclick="location.href='regi_menu'">種目登録</button></div>
+    <div class="edit_menu_button"><button class="home_buttons" type="button" onclick="location.href='edit_menu'">種目編集</button></div>
+    <div class="sort_menu_button"><button class="home_buttons" type="button" onclick="location.href='#'">並び替え</button></div>
     <div class="navigate_message"><span>記録する種目を選択</span></div>
+
     {% for menu in menu_list %}
 
-        <div class="menu"><span><a href={% url 'input' id=menu.id %}>{{menu.menu_name}}</a></span></div>    
+        <!-- del 2021.01.24
+        <div class="menu"><span><a href={% url 'input' id=menu.id %}>{{menu.menu_name}}</a></span></div>
+        -->
+        <div class="menu"><a href={% url 'input' id=menu.id %}><span>{{ menu.menu_name }}<i class="fas fa-chevron-circle-right fa-fw" id="menu_icon"></i></a></span></div>    
         
     {% endfor %} 
 {% endblock %}

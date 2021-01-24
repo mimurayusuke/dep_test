@@ -1,24 +1,92 @@
 .menu {
     font-size: 6vw;
+    min-height: 8vh;
+    text-align: center;
+    margin-top: 2vw;
+    grid-column: 1 / 9;
+}
+
+.menu a {
+    text-decoration: none;
+}
+
+.menu span {
+    display: inline-block;
+    width: 80%;
+    font-weight: bolder;
+    color: black;
+    border-bottom: solid black;
+}
+
+#menu_icon {
+    color: red;
+}
+
+.regi_menu_button {
+    font-size: 6vw;
+    min-height: 8vh;
+    text-align: center;
+    margin: 2vw 0vw;
+    grid-column: 2 / 4;    
+}
+
+.edit_menu_button {
+    font-size: 6vw;
+    min-height: 8vh;
+    text-align: center;
+    margin: 2vw 0vw;
+    grid-column: 4 / 6;
+}
+
+.sort_menu_button {
+    font-size: 6vw;
+    min-height: 8vh;
+    text-align: center;
+    margin: 2vw 0vw;
+    grid-column: 6 / 8;
+}
+
+.home_buttons {
+    width: 95%;
+    height: 100%;
+    font-size: 5vw;
+    color: black;
+    background-color: skyblue;
+    border: solid black;
+    border-radius: 3vw;
+    padding: 0;
+}
+
+
+
+
+
+/*del 2021.01.24
+.menu {
+    font-size: 6vw;
+    min-height: 8vh;
     text-align: center;
     background-color: skyblue;
     margin: 2vw 0vw;
-    grid-column: 2 / 4;
+    grid-column: 2 / 8;
     border: solid black;
     border-radius: 3vw;
 }
 
 .menu span {
-    display: inline-block;
+    display: block;
     width: 100%;
 }
 
 .menu a {
+    display: block;
+    padding-top: 5%;
+    height: 100%;
+    width: 100%;
     color: black;
     text-decoration: none;
 }
 
-/*
 @media screen and (min-width:1000px){
     .item {
         color: white;

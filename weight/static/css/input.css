@@ -2,13 +2,13 @@
 .selected_menu_title {
     font-size: 6vw;
     text-align: center;
-    grid-column: 1 / 5;
+    grid-column: 1 / 9;
 }
 
 .selected_menu {
     font-size: 6vw;
     text-align: center;
-    grid-column: 1 / 5;
+    grid-column: 1 / 9;
 }
 
 .selected_menu span {
@@ -29,7 +29,7 @@
     font-size: 5vw;
     text-align: center;
     margin-bottom: 2vw;
-    grid-column: 1 / 5;
+    grid-column: 1 / 9;
 }
 
 #regi_date_area {

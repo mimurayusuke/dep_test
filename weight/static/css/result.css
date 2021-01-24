@@ -1,14 +1,14 @@
 .result_date {
     font-size: 5vw;
     text-align: center;
-    grid-column: 1 / 5;
+    grid-column: 1 / 9;
 }
 
 .result {
     font-size: 6vw;
     text-align: center;
     margin-top: 2vw;
-    grid-column: 1 / 5;
+    grid-column: 1 / 9;
 }
 
 /*for result_list.html*/
@@ -48,7 +48,7 @@
 .link_order {
     font-size: 6vw;
     text-align: center;
-    grid-column: 1 / 5;
+    grid-column: 1 / 9;
 }
 
 .link_order a{
