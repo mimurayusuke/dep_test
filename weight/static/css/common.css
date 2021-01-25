@@ -6,6 +6,7 @@
 .title {
     font-size: 10vw;
     text-align: center;
+    margin: 1vh 0vw;
     background: white;
     grid-column: 1 / 9;
     justify-content: center;
@@ -145,7 +146,7 @@ form {
 }
 
 p {
-    margin: 1.5vw 0vw;
+    margin: 2vh 0vw;
     width: 100%;
 }
 
