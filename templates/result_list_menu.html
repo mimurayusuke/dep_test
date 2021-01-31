@@ -9,7 +9,7 @@
         {% regroup results by registerd_at as results_list %}
         <!--外側のループでregisterd_atを回し、内側のループで記録を回す-->
         {% for result in results_list %}
-            <div class="result"><span>{{ result.grouper|date:"Y-m-d" }}</span></div>
+            <div class="result_date"><span>{{ result.grouper|date:"Y-m-d" }}</span></div>
             {% for menu in result.list %}
                 <div class="result"><a href={% url 'result_edit' id=menu.id %}><span id="weight_record_span">{{ menu.weight_record }}kg /{{ menu.rep }}Rep /{{ menu.sets }}Set</span></a></div>
             {% endfor %}
