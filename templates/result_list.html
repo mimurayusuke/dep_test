@@ -7,7 +7,7 @@
         {% regroup results by registerd_at as results_list %}
         <!--外側のループでregisterd_atを回し、内側のループでweight_menuと記録を回す-->
         {% for result in results_list %}
-            <div class="result"><span>{{ result.grouper|date:"Y-m-d" }}</span></div>
+            <div class="result_date"><span>{{ result.grouper|date:"Y-m-d" }}</span></div>
             {% for menu in result.list %}
                 <!--日付が変わった場合は、外側のループごとリセットされるので、前回と同じメニューであったとしてもifchangedが有効になる模様-->
                 {% ifchanged menu.weight_menu %}

@@ -1,13 +1,13 @@
 /* for input.html input_success.html */
 .selected_menu_title {
-    font-size: 6vw;
+    font-size: 7vw;
     text-align: center;
     margin: 2vh 0vw;
     grid-column: 1 / 9;
 }
 
 .selected_menu {
-    font-size: 6vw;
+    font-size: 7vw;
     text-align: center;
     grid-column: 1 / 9;
 }
@@ -19,7 +19,8 @@
 
 .input_span {
     display: inline-block;
-    width: 70%;
+    font-size: 7vw;
+    width: 90%;
     color: white;
     background-color: blue;
 }

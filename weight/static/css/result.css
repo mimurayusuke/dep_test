@@ -1,6 +1,7 @@
 .result_date {
-    font-size: 5vw;
+    font-size: 7vw;
     text-align: center;
+    margin-top: 2vh;
     grid-column: 1 / 9;
 }
 
@@ -17,6 +18,13 @@
 }
 
 .result span {
+    display: inline-block;
+    width: 80%;
+    color: white;
+    background-color: blue;
+}
+
+.result_date span {
     display: inline-block;
     width: 80%;
     color: white;
@@ -44,6 +52,32 @@
 }
 
 /*for result_edit.html*/
+
+.selected_resultmenu_title {
+    font-size: 7vw;
+    text-align: center;
+    margin-top: 2vh;
+    grid-column: 1 / 9;
+}
+
+.selected_resultmenu_title span {
+    display: inline-block;
+    width: 90%;
+    color: white;
+    background-color: blue;
+}
+
+.selected_resultmenu {
+    font-size: 7vw;
+    text-align: center;
+    margin-top: 2vh;
+    grid-column: 1 / 9;
+}
+
+.selected_resultmenu span {
+    display: inline-block;
+    width: 80%;
+}
 
 .link_order {
     font-size: 6vw;
