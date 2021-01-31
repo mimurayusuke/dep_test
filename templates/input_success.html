@@ -3,11 +3,11 @@
     <!--css files are input.css & common.css-->
     <div class="page_title_success">記録完了</div>
     <div class="selected_menu_title"><span class="input_span">種目</span></div>
-    <div class="selected_menu"><p>{{ register_menu.menu_name }}</p></div>
+    <div class="selected_menu"><span>{{ register_menu.menu_name }}</span></div>
     <div class="selected_menu_title"><span class="input_span">記録</span></div>
-    <div class="selected_menu"><p>{{ register_weight }}Kg / {{ register_rep }}Rep / {{ register_sets }}Set</p></div>
+    <div class="selected_menu"><span>{{ register_weight }}Kg / {{ register_rep }}Rep / {{ register_sets }}Set</span></div>
     <div class="selected_menu_title"><span class="input_span">ボリューム(Kg*Rep*Set)</span></div>
-    <div class="selected_menu"><p>{{ volume }}Kg</p></div>
+    <div class="selected_menu"><span>{{ volume }}Kg</span></div>
     <div class="without_form_button_area">
         <button class="button" type="button" onclick="location.href='{% url 'input' id=id %}'">記録を続ける</button>
         <p>or</p>
