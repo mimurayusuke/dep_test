@@ -12,6 +12,48 @@
     grid-column: 1 / 9;
 }
 
+.result_date_form_div {
+    grid-column: 1 / 9;
+}
+
+.result_sort_form {
+    width: 100%;
+}
+.sort_date_area {
+    width: 35vw;
+    height: 5vh;
+    font-size: 80%; /*100%に指定すると、入力される文字がボックスいっぱいに拡大される。そして何故かボックスと単位の高さも揃った*/
+    border: solid;
+    padding: 0;
+}
+
+.sort_date_area:focus {
+    border: solid blue;
+    outline: none;
+    box-shadow: 0 0 10px 2px blue;
+}
+
+.result_search_button {
+    width: 30%;
+}
+
+.sort_button_div {
+    min-height: 8vh;
+    text-align: center;
+    margin: 2vh 0vw;
+    grid-column: 4 / 6;
+}
+
+.result_search_button {
+    width: 95%;
+    height: 100%;
+    font-size: 5vw;
+    color: black;
+    background-color: skyblue;
+    border: solid black;
+    border-radius: 3vw;
+    padding: 0;
+}
 /*for result_list.html*/
 .result a {
     text-decoration: none;

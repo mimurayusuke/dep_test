@@ -2,6 +2,16 @@
 
 {% block content %}
     <div class="page_title"><span>記録確認</span></div>
+        <div class="result_date_form_div">
+            <form class="result_sort_form" id="r_s_f" method="get" action="">
+                <input type="date" class="sort_date_area" name="result_start_date" value={{ today }} required>
+                <span>～</span>
+                <input type="date" class="sort_date_area" name="result_end_date" value={{ today }} required>
+            </form>
+        </div>
+        <div class="sort_button_div">
+            <input type="button" class="result_search_button" value="表示" form="r_s_f" onclick="submit();">
+        </div>
         <!--regroupの文法については、公式ドキュメントを参照（https://docs.djangoproject.com/ja/3.1/ref/templates/builtins/#regroup)-->
         <!--regroupを使ってregisterd_atでグループ化する-->
         {% regroup results by registerd_at as results_list %}
