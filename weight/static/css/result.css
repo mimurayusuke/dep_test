@@ -25,16 +25,13 @@
     font-size: 80%; /*100%に指定すると、入力される文字がボックスいっぱいに拡大される。そして何故かボックスと単位の高さも揃った*/
     border: solid;
     padding: 0;
+    background-color: white;
 }
 
 .sort_date_area:focus {
     border: solid blue;
     outline: none;
     box-shadow: 0 0 10px 2px blue;
-}
-
-.result_search_button {
-    width: 30%;
 }
 
 .sort_button_div {
